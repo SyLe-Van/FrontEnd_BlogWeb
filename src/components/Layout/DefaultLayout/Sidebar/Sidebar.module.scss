@@ -1,0 +1,120 @@
+.wrapper {
+    height: 53px;
+    width: 100%;
+    box-shadow: 0px 3px 1px rgba(7, 6, 6, 0.907);
+    display: flex;
+    justify-content: center;
+    position: relative;
+    z-index: 11;
+    background-color: #181818;
+    
+}
+
+.inner {
+    width: 1200px;
+
+    display: flex;
+    font-size: 17px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px -1px 0px rgb(0 0 0 / 15%);
+}
+//fragment
+.fragment{
+    width: 250px;
+    height: 53px;
+}
+//menu
+.menu{
+    width: 600px;
+
+}
+li {
+    margin-bottom: 10px;
+    margin-right: 50px;
+    box-sizing: border-box;
+    padding-top: 15px;
+}
+.menu-list {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    width: 600px;
+
+}
+.menu-list ul, .menu-list li{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+.menu-list li a {
+    text-decoration: none;
+    color: #000000;
+    font-family: Montserrat;
+    margin-left: 40px;
+    box-sizing: border-box;
+}
+//menu contact
+.menu-contact{
+    width: 250px;
+    height: 53px;
+    display: flex;
+    justify-content: flex-end;
+    
+}
+.menu-contact ul, .menu-contact li {
+    width: 120px;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.menu-mode{
+    width: 50px;
+    height: 53px;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+}
+.menu-mode button {
+    background-color: white;
+    border: white;
+    :hover{
+        cursor: pointer;
+    }
+}
+
+.menu-login{
+    width: 50px;
+    height: 53px;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+}
+.menu-login button {
+    background-color: white;
+    border: white;
+    :hover{
+        cursor: pointer;
+    }
+}
+.menu-bars{
+    width: 50px;
+    height: 53px;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+}
+.menu-bars button {
+    background-color: white;
+    border: white;
+    :hover{
+        cursor: pointer;
+    }
+}
+
+
