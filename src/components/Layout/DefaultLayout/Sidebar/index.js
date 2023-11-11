@@ -6,13 +6,22 @@ import Tippy from '@tippyjs/react/headless';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import Contact from '~/components/Contact';
 import { Link } from 'react-router-dom';
-import {
-    BarsOutlined
-  } from '@ant-design/icons';
+import React, { useState } from 'react';
+import { Button, Drawer } from 'antd';
 
 const cx = classNames.bind(styles);
 
 function Sidebar() {
+        const [open, setOpen] = useState(false);
+
+        const showDrawer = () => {
+          setOpen(true);
+        };
+
+        const onClose = () => {
+          setOpen(false);
+        };
+
     return (
         <aside className={cx('wrapper')}>
             <div className={cx('inner')}>
@@ -37,7 +46,7 @@ function Sidebar() {
                     <ul>
                         <li className={cx('menu-mode')}>
                             <button className={cx('moon')}>
-                                <FontAwesomeIcon icon={faMoon} style={{color: "#000000",}}   bounce/>
+                                <FontAwesomeIcon icon={faMoon} style={{color: "#000000",}} />
                             </button>
                         </li>
                         <li className={cx('menu-login')}>
@@ -46,27 +55,21 @@ function Sidebar() {
                             </button>
                         </li>
                         <li className={cx('menu-bars')}>
-                            <button className={cx('bars')}>
+                            
+                            <Button className={cx('bars')} onClick={showDrawer}>
                                 <FontAwesomeIcon icon={faBars} style={{color: "#000000",}} />
-                            </button>
+                            </Button>
+                            <Drawer
+                                
+                                placement="right"
+                                onClose={onClose} open={open}
+                                
+                            >
+                            <p>Nothing!</p>
+
+                            </Drawer>
                         </li>
                     </ul>
-                    <BarsOutlined />
-                    {/* <Tippy
-                        render={(attrs) => (
-                            <div className={cx('contact')} tabIndex="-1" {...attrs}>
-                                <PopperWrapper>
-                                    <Contact />
-                                </PopperWrapper>
-                            </div>
-                        )}
-                        placement="left-end"
-                        interactive="true"
-                    >
-                        <button className={cx('bars')}>
-                            <FontAwesomeIcon icon={faBars} />
-                        </button>
-                    </Tippy> */}
                 </div>
             </div>
         </aside>

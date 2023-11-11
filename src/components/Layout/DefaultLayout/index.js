@@ -13,7 +13,7 @@ function DefaultLayout({ children }) {
             </div>
             <div className={cx('body')}>
                 {children}
-
+            
             </div>
         </div>
     );

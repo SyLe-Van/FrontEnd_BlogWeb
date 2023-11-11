@@ -1,5 +1,6 @@
 import styles from './Header.module.scss';
 import classNames from 'classnames/bind';
+import { Link } from 'react-router-dom';
 const cx = classNames.bind(styles);
 
 function Header() {
@@ -7,7 +8,7 @@ function Header() {
         <div className={cx('wrapper')}>
             <div className={cx('inner')}>
                 <div className={cx('logo')}>
-                    <a href="http://localhost:2002" >MANNUP</a>
+                    <Link to="./" >MANNUP</Link>
                 </div>
             </div>
         </div>

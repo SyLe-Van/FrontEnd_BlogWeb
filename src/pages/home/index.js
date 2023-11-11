@@ -5,7 +5,6 @@ import { AnimatePresence, motion } from 'framer-motion';
 const cx = classNames.bind(styles);
 
 
-
 function Home() {
     return (
         <div className='wrapper'>
@@ -54,9 +53,15 @@ function Home() {
                         </div>
                     </div>
                 </div>
+                <div className={cx('row')}>
+                    
+                </div>
+                <div className={cx('photography')}>
+                    <div className={cx('title')}></div>
+                    <div className={cx('slideshow')}></div>
+                </div>
             </div>
         </div>
-
     )
 }
 
