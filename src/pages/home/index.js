@@ -2,10 +2,12 @@ import { useState } from 'react';
 import styles from './Home.module.scss';
 import classNames from 'classnames/bind';
 import { AnimatePresence, motion } from 'framer-motion';
+import Swiper from '~/components/Layout/Slideshow/Slider'
 const cx = classNames.bind(styles);
 
 
 function Home() {
+    
     return (
         <div className='wrapper'>
             <div className={cx('inner')}>
@@ -53,12 +55,16 @@ function Home() {
                         </div>
                     </div>
                 </div>
-                <div className={cx('row')}>
-                    
-                </div>
+                <div className={cx('row')}></div>
                 <div className={cx('photography')}>
-                    <div className={cx('title')}></div>
-                    <div className={cx('slideshow')}></div>
+                    <div className={cx('title')}>
+                        <div className={cx('block-title-left')}></div>
+                        <p>Photography</p>
+                        <div className={cx('block-title-right')}></div>
+                    </div>
+                    <div className={cx('swiper')}>
+                        <Swiper />
+                    </div>
                 </div>
             </div>
         </div>

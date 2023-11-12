@@ -8,7 +8,7 @@ function Header() {
         <div className={cx('wrapper')}>
             <div className={cx('inner')}>
                 <div className={cx('logo')}>
-                    <Link to="./" >MANNUP</Link>
+                    <Link to="/" >MANNUP</Link>
                 </div>
             </div>
         </div>

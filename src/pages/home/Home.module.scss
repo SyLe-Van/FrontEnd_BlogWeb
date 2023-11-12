@@ -121,5 +121,54 @@
     position: absolute;
     top: 55%;
 }
-
+.photography{
+    width: 100%;
+    height: 700px;
     
+    position: absolute;
+    top: 65%
+}
+.title{
+    width: 100%;
+    height: 72px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.title p{
+    width: 100%;
+    font-family: 'Playfair Display';
+    font-size: 45px;
+    display: inline-block;
+    padding-left: 20px;
+}
+
+.title p::before {
+    content: "";
+    display: inline-block;
+    width: 400px;
+    border-bottom: 1px solid rgb(223, 222, 222);
+    margin-right: 30px;
+    margin-left: 0;
+    vertical-align: middle;
+}
+.title p::after {
+    content: "";
+    display: inline-block;
+    width: 460px;
+    border-bottom: 1px solid rgb(223, 222, 222);
+    vertical-align: middle;
+    margin-left: 30px;
+}
+/////// slide
+.slideshow{
+    width: 100%;
+    height: 590px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    background-color: aqua;
+}
