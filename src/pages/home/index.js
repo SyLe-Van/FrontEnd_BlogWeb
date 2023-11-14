@@ -55,7 +55,7 @@ function Home() {
                         </div>
                     </div>
                 </div>
-                <div className={cx('row')}></div>
+                <div className={cx('row1')}></div>
                 <div className={cx('photography')}>
                     <div className={cx('title')}>
                         <div className={cx('block-title-left')}></div>
@@ -66,6 +66,7 @@ function Home() {
                         <Swiper />
                     </div>
                 </div>
+                <div className={cx('row')}></div>
             </div>
         </div>
     )
