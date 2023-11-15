@@ -10,7 +10,7 @@ import React, { useState } from 'react';
 import { Button, Drawer, Space, Dropdown } from 'antd';
 import { LockOutlined, UserOutlined, DownOutlined, SmileOutlined } from '@ant-design/icons';
 import { Checkbox, Form, Input } from 'antd';
-import Login from '../../Register';
+
 
 const cx = classNames.bind(styles);
 
@@ -21,54 +21,13 @@ function Sidebar() {
         const showDrawer = () => {
           setOpen(true);
         };
-        // const showLargeDrawer = () => {
-        //     setSize('large');
-        //     setOpen(true);
-        // };
+        const showLargeDrawer = () => {
+            setSize('large');
+            setOpen(true);
+        };
         const onClose = () => {
           setOpen(false);
         };
-        // const handleButtonHover = () => {
-        //     setShowDropdown(true);
-        //   };
-        
-        //   const handleButtonLeave = () => {
-        //     setShowDropdown(false);
-        //   };
-        // const items = [
-        //     {
-        //       key: '1',
-        //       label: (
-        //         <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
-        //           1st menu item
-        //         </a>
-        //       ),
-        //     },
-        //     {
-        //       key: '2',
-        //       label: (
-        //         <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
-        //           2nd menu item (disabled)
-        //         </a>
-        //       ),
-        //       icon: <SmileOutlined />,
-        //       disabled: true,
-        //     },
-        //     {
-        //       key: '3',
-        //       label: (
-        //         <a target="_blank" rel="noopener noreferrer" href="https://www.luohanacademy.com">
-        //           3rd menu item (disabled)
-        //         </a>
-        //       ),
-        //       disabled: true,
-        //     },
-        //     {
-        //       key: '4',
-        //       danger: true,
-        //       label: 'a danger item',
-        //     },
-        //   ];
 
 
         
@@ -100,37 +59,9 @@ function Sidebar() {
                             </button>
                         </li>
                         <li className={cx('menu-login')}>
-                            
-                                <Button className={cx('login')}
-                                    onClick={showDrawer}
-                                >
-                                    <FontAwesomeIcon icon={faUser} style={{color: "#000000",}} />
-                                </Button>
-                                {/* {showDropdown && (
-                                    <Dropdown
-                                    overlay={{
-                                        items,
-                                    }}
-                                    >
-                                        <a onClick={(e) => e.preventDefault()}></a>
-                                    </Dropdown>
-                                )} */}
-                                <Drawer
-                                    placement="right"
-                                    onClose={onClose} open={open}
-                                    size={size}
-                                    extra={
-                                        <Space>
-                                            <Button onClick={onClose}>Cancel</Button>
-                                            <Button type="primary" onClick={onClose}>
-                                                Ok
-                                            </Button>
-                                        </Space>
-                                      }
-                                >
-                                    <Login/>
-                                </Drawer>
-                            
+                            <Link to="/login">
+                                <FontAwesomeIcon icon={faUser} style={{color: "#000000",}} />
+                            </Link>
                         </li>
                         <li className={cx('menu-bars')}>
                             <Space>
