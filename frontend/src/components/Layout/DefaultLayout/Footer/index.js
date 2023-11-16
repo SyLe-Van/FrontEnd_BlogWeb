@@ -7,7 +7,7 @@ function Footer() {
         <footer>
         <div className={cx('wrapper')}>
             <div className={cx('inner')}>
-                <h1>DAY LA FOOTER</h1>
+                <h1>DAY LA </h1>
             </div>
         </div>
         </footer>
