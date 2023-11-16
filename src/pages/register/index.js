@@ -11,12 +11,13 @@ export default function Register() {
     const [password, setPassword] = useState('');
     async function register(event) {
         const ev = event;
-        const response = await fetch('http://localhost:3001/register', {
+        ev.preventDefault();
+        await fetch('http://localhost:3001/register', {
             method: 'POST',
             body: JSON.stringify({username,password}),
             headers: {'Content-Type':'application/json'},
         });
-    }
+    }   
     return (
     <form className={cx('register')} onSubmit={register}>
       <h1>Register</h1>
