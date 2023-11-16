@@ -38,7 +38,7 @@ function Sidebar() {
                 <div className={cx('menu')}>
                     <ul className={cx('menu-list')}>
                         <li>
-                            <Link to="/lifestyle">LIFESTYLE</Link>
+                            <Link to="/lifestyle">LIFESTYLE!</Link>
                         </li>
                         <li>
                             <Link to="/fashion">FASHION</Link>
