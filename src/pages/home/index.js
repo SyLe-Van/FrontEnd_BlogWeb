@@ -67,6 +67,9 @@ function Home() {
                     </div>
                 </div>
                 <div className={cx('row')}></div>
+                <div>
+                    
+                </div>
             </div>
         </div>
     )
