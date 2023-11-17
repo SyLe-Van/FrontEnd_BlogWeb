@@ -5,31 +5,35 @@ import { Button, Checkbox, Form, Input } from 'antd';
 import { useState } from 'react';
 const cx = classNames.bind(styles);
 
-export default function Register() {
-
+export default function RegisterPage() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    async function register(event) {
-        const ev = event;
-        ev.preventDefault();
-        await fetch('http://localhost:3001/register', {
-            method: 'POST',
-            body: JSON.stringify({username,password}),
-            headers: {'Content-Type':'application/json'},
-        });
-    }   
+
+    async function register(ev) {
+      ev.preventDefault();
+      const response = await fetch('http://localhost:3000/register', {
+        method: 'POST',
+        body: JSON.stringify({username,password}),
+        headers: {'Content-Type':'application/json'},
+      });
+      if (response.status === 200) {
+        alert('registration successful');
+      } else {
+        alert('registration failed');
+      }
+    }
     return (
-    <form className={cx('register')} onSubmit={register}>
-      <h1>Register</h1>
-      <input type="text"
-             placeholder="username"
-             value={username}
-             onChange={ev => setUsername(ev.target.value)}/>
-      <input type="password"
-             placeholder="password"
-             value={password}
-             onChange={ev => setPassword(ev.target.value)}/>
-      <button>Register</button>
-    </form>
+      <form className={cx('register')} onSubmit={register}>
+        <h1>Register</h1>
+        <input type="text"
+               placeholder="username"
+               value={username}
+               onChange={ev => setUsername(ev.target.value)}/>
+        <input type="password"
+               placeholder="password"
+               value={password}
+               onChange={ev => setPassword(ev.target.value)}/>
+        <button>Register</button>
+      </form>
     );
-}
+  }
