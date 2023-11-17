@@ -13,7 +13,8 @@ export default function Login() {
     const [password, setPassword] = useState('');
     async function login(event) {
         const ev = event;
-        const response = await fetch('http://localhost:3001/login', {
+        ev.preventDefault();
+        await fetch('http://localhost:3001/login', {
             method: 'POST',
             body: JSON.stringify({username,password}),
             headers: {'Content-Type':'application/json'},
