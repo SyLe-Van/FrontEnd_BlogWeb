@@ -19,3 +19,4 @@ export default function Post({title, cover, content, categories}) {
 }
 
 
+    
