@@ -5,7 +5,7 @@ import Grooming from '~/pages/grooming';
 import LifeStyle from '~/pages/lifestyle';
 import Register from '~/pages/register';
 import Login from '~/pages/login';
-
+import Create from '~/pages/create';
 // dont need login to view
 const publicRoutes = [
     { path: '/', component: Home },
@@ -15,6 +15,7 @@ const publicRoutes = [
     { path: '/lifestyle', component: LifeStyle },
     { path: '/register', component: Register },
     { path: '/login', component: Login },
+    { path: '/create', component: Create },
 ];
 
 const privateRoutes = [];

@@ -4,37 +4,48 @@ import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { Button, Checkbox, Form, Input } from 'antd';
 import { useState } from 'react';
 import Register from '../register';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 const cx = classNames.bind(styles);
 
 export default function Login() {
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [redirect, setRedirect] = useState(false);
+
     async function login(event) {
         const ev = event;
         ev.preventDefault();
-        await fetch('http://localhost:3001/login', {
+        const response = await fetch('http://localhost:3000/login', {
             method: 'POST',
             body: JSON.stringify({username,password}),
             headers: {'Content-Type':'application/json'},
+            credentials: 'include',
         });
+        if(response.ok) {
+          setRedirect(true);
+        }else{
+          alert('Login failed');
+        }
+    }
+    if(redirect) {
+      return <Navigate to={'/'}/>
     }
     return (
     <form className={cx('login')} onSubmit={login}>
-      <h1>Login</h1>
-      <input type="text"
-             placeholder="username"
-             value={username}
-             onChange={ev => setUsername(ev.target.value)}/>
-      <input type="password"
-             placeholder="password"
-             value={password}
-             onChange={ev => setPassword(ev.target.value)}/>
-      <button>Login</button>
-      <Link to="/register">
-        <button>Register</button>
-      </Link>
+        <h1>Login</h1>
+        <input type="text"
+              placeholder="username"
+              value={username}
+              onChange={ev => setUsername(ev.target.value)}/>
+        <input type="password"
+              placeholder="password"
+              value={password}
+              onChange={ev => setPassword(ev.target.value)}/>
+        <button>Login</button>
+        <Link to="/register">
+          <button>Register</button>
+        </Link>
     </form>
     );
 }
