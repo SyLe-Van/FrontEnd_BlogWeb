@@ -10,6 +10,7 @@ import React, { useState } from 'react';
 import { Button, Drawer, Space, Dropdown } from 'antd';
 import { LockOutlined, UserOutlined, DownOutlined, SmileOutlined } from '@ant-design/icons';
 import { Checkbox, Form, Input } from 'antd';
+import Login from '~/pages/login';
 
 
 const cx = classNames.bind(styles);
@@ -18,6 +19,8 @@ function Sidebar() {
         const [open, setOpen] = useState(false);
         const [size, setSize] = useState();
         const [showDropdown, setShowDropdown] = useState(false);
+        const [showLogin, setShowLogin] = useState(false);
+
         const showDrawer = () => {
           setOpen(true);
         };
@@ -29,7 +32,9 @@ function Sidebar() {
           setOpen(false);
         };
 
-
+        const toggleLogin = () => {
+            setShowLogin(!showLogin);
+          };
         
     return (
         <aside className={cx('wrapper')}>
@@ -59,9 +64,28 @@ function Sidebar() {
                             </button>
                         </li>
                         <li className={cx('menu-login')}>
-                            <Link to="/login">
+                            <button
+                                className={cx('user-icon-button')} 
+                                onClick={() => setShowLogin(!showLogin)}
+                            >
+                                <FontAwesomeIcon icon={faUser} style={{ color: '#000000' }} />
+                            </button>
+                            {showLogin && (
+                                <div className={cx('login-modal')}>
+                                    <div className={cx('modal-content')}>
+                                        <button 
+                                            className={cx('login-modal-close-button')} 
+                                            onClick={toggleLogin}
+                                        >
+                                            X
+                                        </button>
+                                        <Login />
+                                    </div>
+                                </div>
+                            )}
+                            {/* <Link to="/login">
                                 <FontAwesomeIcon icon={faUser} style={{color: "#000000",}} />
-                            </Link>
+                            </Link> */}
                         </li>
                         <li className={cx('menu-bars')}>
                             <Space>
