@@ -9,32 +9,57 @@ const cx = classNames.bind(styles);
 
 export default function Login() {
 
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
-    async function login(event) {
-        const ev = event;
-        ev.preventDefault();
-        await fetch('http://localhost:3001/login', {
-            method: 'POST',
-            body: JSON.stringify({username,password}),
-            headers: {'Content-Type':'application/json'},
-        });
-    }
-    return (
-    <form className={cx('login')} onSubmit={login}>
-      <h1>Login</h1>
-      <input type="text"
-             placeholder="username"
-             value={username}
-             onChange={ev => setUsername(ev.target.value)}/>
-      <input type="password"
-             placeholder="password"
-             value={password}
-             onChange={ev => setPassword(ev.target.value)}/>
-      <button>Login</button>
-      <Link to="/register">
-        <button>Register</button>
-      </Link>
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  
+  async function login(event) {
+      const ev = event;
+      ev.preventDefault();
+      await fetch('http://localhost:3001/login', {
+          method: 'POST',
+          body: JSON.stringify({username,password}),
+          headers: {'Content-Type':'application/json'},
+      });
+  }
+
+  return (
+    <form 
+      className={cx('login')} 
+      onSubmit={login}
+    >
+      <h1
+        className={cx('login-title')}
+      >
+        Login
+      </h1>
+      <input 
+        type="text"
+        placeholder="username"
+        value={username}
+        onChange={ev => setUsername(ev.target.value)}
+      />
+      <input 
+        type="password"
+        placeholder="password"
+        value={password}
+        onChange={ev => setPassword(ev.target.value)}
+      />
+      <button>
+        Login
+      </button>
+      <p>
+        No account?
+      <span>
+        <Link 
+          className={cx('register')}
+          to="/register" 
+        >
+        <a>
+          Register
+        </a>
+        </Link>
+      </span>
+      </p>
     </form>
-    );
+  );
 }
