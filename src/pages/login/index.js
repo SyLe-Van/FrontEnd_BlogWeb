@@ -55,7 +55,7 @@ export default function Login() {
           to="/register" 
         >
         <a>
-          Register
+          Sign up
         </a>
         </Link>
       </span>
