@@ -19,7 +19,6 @@ export default function Sidebar() {
     const [size, setSize] = useState();
     const [showDropdown, setShowDropdown] = useState(false);
     const [username, setUsername] = useState('');
-    // const { userInfo,setUserInfo} = useContext(UserContext)
     const showDrawer = () => {
         setOpen(true);
     };
