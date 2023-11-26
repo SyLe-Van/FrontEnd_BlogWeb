@@ -29,14 +29,7 @@ function Home() {
                         </div>
                     </div>
                     <div className={cx('contain-middle')}>
-                        <div className={cx('main-content')}>
-                            <a>
-                                <img src='https://mannup.vn/wp-content/uploads/2016/11/ed80c049c0fc414f6c5fdaac9afc6a34.jpg'></img>
-                            </a>
-                            <article className={cx('main-text')}>
-                                <h1>Điều tạo nên một vẽ đẹp nam tính</h1>
-                            </article>
-                        </div>
+                        
                     </div>
                     <div className={cx('contain-right')}>
                         <div className={cx('right-content')}>  
