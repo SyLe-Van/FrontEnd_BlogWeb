@@ -3,10 +3,13 @@ import styles from './Home.module.scss';
 import classNames from 'classnames/bind';
 import { AnimatePresence, motion } from 'framer-motion';
 import Swiper from '~/components/Layout/Slideshow/Slider'
+import { useEffect } from 'react';
+import Post from '../post';
+
 const cx = classNames.bind(styles);
 
 
-function Home() {
+export default function Home() {
     
     return (
         <div className='wrapper'>
@@ -66,4 +69,3 @@ function Home() {
     )
 }
 
-export default Home;

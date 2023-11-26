@@ -2,8 +2,9 @@ import styles from './Sidebar.module.scss';
 import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faMoon, faPlus, faRightFromBracket, faShapes, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faMoon, faPlus, faShapes, faUser, faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 import Tippy from '@tippyjs/react/headless';
-import { Wrapper as PopperWrapper } from '~/components/Popper';
+import { Wrapper as PopperWrapper, UserContext } from '~/components/Popper';
 import Contact from '~/components/Contact';
 import { Link } from 'react-router-dom';
 import React, { useState, useEffect, useContext } from 'react';
@@ -163,4 +164,3 @@ function Sidebar() {
     );
 }
 
-export default Sidebar;
