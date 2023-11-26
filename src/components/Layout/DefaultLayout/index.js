@@ -5,7 +5,7 @@ import Sidebar from './Sidebar';
 import Footer from './Footer';
 
 const cx = classNames.bind(styles);
-function DefaultLayout({ children }) {
+export default function DefaultLayout({ children }) {
     return (
         <div className={cx('wrapper')}>
             <div className={cx('top')}>
@@ -23,4 +23,3 @@ function DefaultLayout({ children }) {
     );
 }
 
-export default DefaultLayout;
