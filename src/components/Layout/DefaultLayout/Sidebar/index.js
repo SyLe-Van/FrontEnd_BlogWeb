@@ -10,6 +10,7 @@ import React, { useState, useEffect, useContext, triggerEffect } from 'react';
 import { Button, Drawer, Space, Dropdown } from 'antd';
 import { LockOutlined, UserOutlined, DownOutlined, SmileOutlined } from '@ant-design/icons';
 import { Checkbox, Form, Input } from 'antd';
+import Login from '~/pages/login';
 
 const cx = classNames.bind(styles);
 

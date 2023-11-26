@@ -47,5 +47,5 @@ export default function Login() {
           <button>Register</button>
         </Link>
     </form>
-    );
+  );
 }
