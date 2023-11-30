@@ -1,23 +1,6 @@
-.wrapper{
-    width: 100%;
-    height: 1000px;
-    margin: 0 auto;
-    padding: 0;
-    box-sizing: border-box;
-}
 
-.inner{
-    height: 1500px;
-    width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    position: relative;
-    margin-left: 115px;
-}
-.form-info{
-    position: absolute;
-    top: 2%
+form.create{
+    margin-left: 450px;
+    margin-top: 30px;
+    
 }
