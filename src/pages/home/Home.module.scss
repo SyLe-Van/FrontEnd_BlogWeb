@@ -1,37 +1,31 @@
 .wrapper{
-    width: 100%;
-    height: 1000px;
+    width: 100vw;
+    height: 100vh;
     margin: 0 auto;
     padding: 0;
     box-sizing: border-box;
 }
 
 .inner{
-    height: 1500px;
+    height: fit-content;
     width: 1200px;
     margin: 0 auto;
     display: flex;
     justify-content: center;
     align-items: flex-start;
     flex-direction: column;
-    position: relative;
+    // position: relative;
     margin-left: 115px;
 }
 
 //////////////// contain
 .contain {
-    margin-top: 150px;
     height: 750px;
-    width: 1200px;
+    width: 100%;
     display:flex;
     justify-content: space-between;
-    position:absolute;
-    flex: 1;
-    top: 0%;
     margin-top: 30px;
-    align-items: flex-start;
-
-    // background-color: aquamarine;
+    
 }
 
 .contain-left, .contain-middle, .contain-right{
@@ -56,6 +50,7 @@
 .contain-left{
     width: 300px;
     box-shadow: 0.5px 0px 0px rgba(71, 71, 71, 0.2);
+    
 }
 .left-content{
     width: 250px;
@@ -73,6 +68,11 @@
     font-size: 1.7em;
     font-style: normal;
     line-height: 1.2;
+}
+
+.bottom-post{
+    margin-top: 20px;
+    
 }
 //right
 .contain-right{
@@ -94,69 +94,66 @@
     font-style: normal;
     line-height: 1.2;
 }
+.b-post{
+    margin-top: 70px;
+
+}
 ///////////////////////// row
 
-.row1{
+.row1, .row2{
     height: 110px;
     width: 100%;
     background-color: rgb(236, 237, 237); 
-    order: 2;
-    position: absolute;
-    top: 55%;
-}
-.photography{
-    width: 100%;
-    height: 700px;
-    
-    position: absolute;
-    top: 65%
-}
-.title{
-    width: 100%;
-    height: 72px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
+    margin-top: 60px;
 }
 
-.title p{
+// lifestyle css
+.lifestyle-block, .fashion-block, .cinema-block, .grooming-block{
+    width: 100%;
+    height: 522px;
+    margin-top: 60px;
+}
+.lifestyle-title, .fashion-title, .cinema-title, .grooming-title{
+    width: 100%;
+    height: 72px;
+}
+
+.lifestyle-title p, .fashion-title p, .cinema-title p, .grooming-title p{
     width: 100%;
     font-family: 'Playfair Display';
     font-size: 45px;
     display: inline-block;
-    padding-left: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
 }
 
-.title p::before {
+.lifestyle-title p::before, .fashion-title p::before, .cinema-title p::before, .grooming-title p::before {
     content: "";
-    display: inline-block;
-    width: 400px;
+    width: 550px;
     border-bottom: 1px solid rgb(223, 222, 222);
     margin-right: 30px;
     margin-left: 0;
     vertical-align: middle;
 }
-.title p::after {
+.lifestyle-title p::after, .fashion-title p::after, .cinema-title p::after, .grooming-title p::after {
     content: "";
-    display: inline-block;
-    width: 460px;
+    width: 550px;
     border-bottom: 1px solid rgb(223, 222, 222);
     vertical-align: middle;
     margin-left: 30px;
 }
-/////// slide
-.slideshow{
+
+
+.lifestyle-contain, .fashion-contain, .cinema-contain, .grooming-contain{
     width: 100%;
-    height: 590px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    background-color: aqua;
+    height: 470px;
+    background-color: beige;
 }
-///row2
-.row2{
-    position: absolute;
-    
+//footer
+.footer{
+    width: 100vw;
+    height: 700px;
+    margin-top: 60px;
 }

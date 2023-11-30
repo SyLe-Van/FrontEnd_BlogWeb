@@ -31,6 +31,11 @@ function Footer() {
 
                     </div>
                 </div>
+                <div className={cx('footer-lower')}>
+                    <div>
+                        <p>Thanks for visiting us</p>
+                    </div>
+                </div>
             </div>
         </footer>
     );

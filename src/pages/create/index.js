@@ -49,20 +49,26 @@ export default function CreatePost() {
       setRedirect(true);
     }
   }
-
+  
   if (redirect) {
-    return <Navigate to={'/lifestyle'} />
+    return <Navigate to={'/'} />
   }
+
   return (
-    <form onSubmit={createNewPost}>
+    <form onSubmit={createNewPost} className={cx('create')}>
       <input type="title"
              placeholder={'Title'}
              value={title}
              onChange={ev => setTitle(ev.target.value)} />
-      <input type="category"
+      <select type="category"
              placeholder={'Categories'}
              value={categories}
-             onChange={ev => setCategories(ev.target.value)} />
+             onChange={ev => setCategories(ev.target.value)}>
+          <option value="lifestyle">Lifestyle</option>
+          <option value="fashion">Fashion</option>
+          <option value="cinema">Cinema</option>
+          <option value="grooming">Grooming</option>
+      </select>
       <input type="file"
              onChange={ev => setFiles(ev.target.files)} />
       <Editor onChange={setContent} value={content}/>

@@ -46,7 +46,6 @@ export default function DetailPost() {
                 })
             })
     }, []);
-
     if (!postInfo) return '';
 
         return (

@@ -1,11 +1,13 @@
 .wrapper {
-    width: 100%px;
+    max-width: 100%px;
     height: 2500px;
     display: flex;
     flex-direction: column;
     align-items: center;
     
+    
 }
+
 .top {
     width: 100%;
     height: 145px;
@@ -15,7 +17,7 @@
 .body{
     margin: 0;
     width: 100%;
-    height: 1650px;
+    height: fit-content;
     display: flex;
     justify-self: center;
     
@@ -24,5 +26,5 @@
 .bottom {
     left: 0;
     bottom: 0;
-    width: 100%;
+    width: 100vw;
 }

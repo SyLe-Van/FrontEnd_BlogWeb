@@ -13,11 +13,10 @@ export default function DefaultLayout({ children }) {
                 <Sidebar />
             </div>
             <div className={cx('body')}>
-                {children}
-            
+                {children}    
             </div>
             <div className={cx('bottom')}>
-                <Footer />
+                {/* <Footer /> */}
             </div>
         </div>
     );
