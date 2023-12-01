@@ -51,11 +51,6 @@ form {
     margin: 0 0 50px 0;
 }
 
-// form.login{
-//     max-width: 400px;
-//     margin: 0 auto;
-// }
-
 input:focus {
     border: 2px solid #22eaa7;
     outline: none;
@@ -85,3 +80,21 @@ input{
 form.login h1{
     text-align: center;
 }
+
+.register-redirect {
+    color: #22eaa7;
+}
+
+.register-redirect:hover {
+    cursor: pointer;
+    text-shadow: 1px 1px rgba(7, 6, 6, 5.0);
+}
+
+.login {
+    transition: transform 0.3s ease-out;
+    transform: translateX(0);
+  }
+  
+  .login.visible {
+    transform: translateX(-100%);
+  }
