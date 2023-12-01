@@ -28,7 +28,6 @@ function Footer() {
                         </div>
                     </div>
                     <div className={cx('inner-wrap3')}>
-
                     </div>
                 </div>
                 <div className={cx('footer-lower')}>
