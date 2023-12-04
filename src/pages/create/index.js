@@ -51,29 +51,26 @@ export default function CreatePost() {
   }
   
   if (redirect) {
-    return <Navigate to={'/'} />
+    return <Navigate to={`/${categories}`} />
   }
 
   return (
-    <form onSubmit={createNewPost} className={cx('create')}>
-      <input type="title"
-             placeholder={'Title'}
-             value={title}
-             onChange={ev => setTitle(ev.target.value)} />
-      <select type="category"
-             placeholder={'Categories'}
-             value={categories}
-             onChange={ev => setCategories(ev.target.value)}>
-          <option value="lifestyle">Lifestyle</option>
-          <option value="fashion">Fashion</option>
-          <option value="cinema">Cinema</option>
-          <option value="grooming">Grooming</option>
-      </select>
-      <input type="file"
-             onChange={ev => setFiles(ev.target.files)} />
-      <Editor onChange={setContent} value={content}/>
-      <button style={{marginTop:'5px'}}>Create post</button>
-    </form>
+    <div className={cx('create')}>
+      <form onSubmit={createNewPost} className={cx('create')}>
+        <input type="title"
+               placeholder={'Title'}
+               value={title}
+               onChange={ev => setTitle(ev.target.value)} />
+        <input type="category"
+               placeholder={'Categories'}
+               value={categories}
+               onChange={ev => setCategories(ev.target.value)}/>
+        <input type="file"
+               onChange={ev => setFiles(ev.target.files)} />
+        <ReactQuill onChange={setContent} value={content}/>
+        <button style={{marginTop:'5px'}} className={cx('button')}>Create post</button>
+      </form>
+    </div>
   );
 }
 
