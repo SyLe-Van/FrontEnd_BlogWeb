@@ -44,7 +44,7 @@ export default function EditPost() {
         const response = await fetch('http://localhost:3000/post', {
             method: 'PUT',
             body: data,
-            credentials: 'include',
+            credentials: 'include',       
         })
         if (response.ok) {
             setRedirect(true);
@@ -54,23 +54,24 @@ export default function EditPost() {
     if (redirect) {
         return <Navigate to={'/post/' + id} />
     }
-
     return (
-        <form onSubmit={updatePost}>
-          <input type="title"
-                 placeholder={'Title'}
-                 value={title}
-                 onChange={ev => setTitle(ev.target.value)} />
-          <input type="category"
-                 placeholder={'Categories'}
-                 value={categories}
-                 onChange={ev => setCategories(ev.target.value)} />
-          <input type="file"
-                 onChange={ev => setFiles(ev.target.files)} />
-          <Editor onChange={setContent} value={content}/>
-          <button style={{marginTop:'5px'}}>Update Post</button>
-        </form>
-      );
+        <div className={cx('wrapper')}>
+            <form onSubmit={updatePost}>
+              <input type="title"
+                     placeholder={'Title'}
+                     value={title}
+                     onChange={ev => setTitle(ev.target.value)} />
+              <input type="category"
+                     placeholder={'Categories'}
+                     value={categories}
+                     onChange={ev => setCategories(ev.target.value)} />
+              <input type="file"
+                     onChange={ev => setFiles(ev.target.files)} />
+              <Editor onChange={setContent} value={content}/>
+              <button style={{marginTop:'5px'}}>Update Post</button>
+            </form>
+        </div>
+    )
 }
 
  

@@ -20,13 +20,13 @@
     margin-left: 115px;
     
 }
-.lifestyle-block{
+.cinema-block{
     width: 100%;
     height: 72px;
     margin-top: 30px;
     
 }
-.lifestyle-title{
+.cinema-title{
     width: 100%;
     font-family: 'Playfair Display';
     font-size: 40px;
@@ -35,7 +35,7 @@
     justify-content: center;
     align-items: center;
 }
-.lifestyle-block p::before {
+.cinema-block p::before {
     content: "";
     width: 550px;
     border-bottom: 1px solid rgb(223, 222, 222);
@@ -43,7 +43,7 @@
     margin-left: 0;
     vertical-align: middle;
 }
-.lifestyle-block p::after {
+.cinema-block p::after {
     content: "";
     width: 550px;
     border-bottom: 1px solid rgb(223, 222, 222);
@@ -51,7 +51,7 @@
     margin-left: 30px;
 }
 
-.lifestyle-contain{
+.cinema-contain{
     width: 100%;
     height: fit-content;
     display: flex;

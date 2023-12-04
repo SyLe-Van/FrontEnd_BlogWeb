@@ -12,17 +12,16 @@ export default function Post({_id,title, categories, cover, content, author}) {
         <div className={cx('wrapper')}>
             <div className={cx('post')}>
                 <Link to={`/post/${_id}`}>
-                    <a className={cx('image')}>
-                        <img src={'http://localhost:3000/' + cover}></img>
-                    </a>
+                        <img src={'http://localhost:3000/static/' + cover}></img>
                 </Link>
-                <article className={cx('main-text')}>
-                    {/* <a className={cx('author')}>{author.username}</a> */}
-                    <p className={cx('category')}>{categories}</p>
-                    <Link to={`/post/${_id}`}>
-                        <h2 className={cx('title')}>{title}</h2>
-                    </Link>
-                </article>
+                
+                <Link to={`/post/${_id}`}>
+                    <p className={cx('categories')}>{categories}</p>
+                </Link>
+                
+                <Link to={`/post/${_id}`}>
+                    <h2 className={cx('title')}>{title}</h2>
+                </Link>
             </div>
         </div>
     )

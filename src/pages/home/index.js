@@ -6,15 +6,41 @@ import Swiper from '~/components/Layout/Slideshow/Slider'
 import { useEffect } from 'react';
 import Post from '~/pages/post';
 import Footer from '~/components/Layout/DefaultLayout/Footer';
+import LifeStyle from '~/pages/lifestyle';
 const cx = classNames.bind(styles);
 
 
 export default function Home() {
-    const [posts,setPosts] = useState([]);
+    const [lfposts,setLFPosts] = useState([]);
+    const [fposts,setFPosts] = useState([]);
+    const [cposts,setCPosts] = useState([]);
+    const [gposts,setGPosts] = useState([]);
+    const lifestyle = 'lifestyle';
+    const fashion = 'fashion';
+    const cinema = 'cinema';
+    const grooming = 'grooming';
     useEffect(() => {
-        fetch('http://localhost:3000/getPost').then(response => {
-            response.json().then(posts => {
-                setPosts(posts);});
+        fetch(`http://localhost:3000/post/getPostByCategories/${lifestyle}`).then(response => {
+            response.json().then(lfposts => {
+                setLFPosts(lfposts);});
+            });
+    }, []);
+    useEffect(() => {
+        fetch(`http://localhost:3000/post/getPostByCategories/${fashion}`).then(response => {
+            response.json().then(fposts => {
+                setFPosts(fposts);});
+            });
+    }, []);
+    useEffect(() => {
+        fetch(`http://localhost:3000/post/getPostByCategories/${cinema}`).then(response => {
+            response.json().then(cposts => {
+                setCPosts(cposts);});
+            });
+    }, []);
+    useEffect(() => {
+        fetch(`http://localhost:3000/post/getPostByCategories/${grooming}`).then(response => {
+            response.json().then(gposts => {
+                setGPosts(gposts);});
             });
     }, []);
     return (
@@ -81,9 +107,9 @@ export default function Home() {
                         <p>Lifestyle</p>
                     </div>
                     <div className={cx('lifestyle-contain')}>
-                        {/* {posts.length > 0 && posts.map(post => (
-                            <Post {...post} classname={cx('post')}/>
-                        ))} */}
+                        {lfposts.length > 0 && lfposts.map(lfposts => (
+                            <Post {...lfposts} classname={cx('post')}/>
+                        ))}
                     </div>
                 </div>
 
@@ -94,9 +120,9 @@ export default function Home() {
                             <p>Fashion</p>
                     </div>
                     <div className={cx('fashion-contain')}>
-                        {/* {posts.length > 0 && posts.map(post => (
-                            <Post {...post} classname={cx('post')}/>
-                        ))} */}
+                        {fposts.length > 0 && fposts.map(fpost => (
+                            <Post {...fpost} classname={cx('post')}/>
+                        ))}
                     </div>
                 </div>
 
@@ -107,7 +133,9 @@ export default function Home() {
                         <p>Cinema</p>
                     </div>
                     <div className={cx('cinema-contain')}>
-                       
+                        {cposts.length > 0 && cposts.map(cpost => (
+                            <Post {...cpost} classname={cx('post')}/>
+                        ))}
                     </div>
                 </div>
 
@@ -115,14 +143,12 @@ export default function Home() {
 
                 <div className={cx('grooming-block')}>
                     <div className={cx('grooming-title')}>
-                        <div className={cx('block-title-left')}></div>
-                            <p>Grooming</p>
-                        <div className={cx('block-title-right')}></div>
+                        <p>Grooming</p>
                     </div>
                     <div className={cx('grooming-contain')}>
-                        {/* {posts.length > 0 && posts.map(post => (
-                            <Post {...post} classname={cx('post')}/>
-                        ))} */}
+                        {gposts.length > 0 && gposts.slice(0, 2).map(gpost => (
+                            <Post {...gpost} classname={cx('post')}/>
+                        ))}
                     </div>
                 </div>
 
