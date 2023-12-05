@@ -28,11 +28,13 @@ export default function RegisterPage({ onLoginClick }) {
     return (
       <form className={cx('register')} onSubmit={register}>
         <h1>Register</h1>
-        <input type="text"
+        <input className={cx('register-input')}
+              type="text"
                placeholder="username"
                value={username}
                onChange={ev => setUsername(ev.target.value)}/>
-        <input type="password"
+        <input className={cx('register-input')}
+              type="password"
                placeholder="password"
                value={password}
                onChange={ev => setPassword(ev.target.value)}/>

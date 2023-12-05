@@ -16,6 +16,7 @@ export default function Login({ onRegisterClick, showLogin }) {
   const [password, setPassword] = useState('');
   const [redirect, setRedirect] = useState(false);
   const {setUserInfo} = useContext(UserContext);
+
   async function login(event) {
     const ev = event;
     ev.preventDefault();
@@ -48,13 +49,13 @@ export default function Login({ onRegisterClick, showLogin }) {
       >
         Login
       </h1>
-      <input 
+      <input className={cx('login-input')}
         type="text"
         placeholder="username"
         value={username}
         onChange={ev => setUsername(ev.target.value)}
       />
-      <input 
+      <input className={cx('login-input')}
         type="password"
         placeholder="password"
         value={password}

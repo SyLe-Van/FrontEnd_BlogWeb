@@ -12,7 +12,6 @@
 
 .inner {
     width: 1200px;
-
     display: flex;
     font-size: 17px;
     display: flex;
@@ -43,6 +42,7 @@ li {
     justify-content: center;
     list-style-type: none;
     width: 600px;
+    
 
 }
 .menu-list ul, .menu-list li{
@@ -64,17 +64,26 @@ li {
     height: 53px;
     display: flex;
     justify-content: flex-end;
+    align-items: center;
+    
     
 }
-.menu-contact ul, .menu-contact li {
-    width: 120px;
+
+.menu-contact ul{
+    
     height: 100%;
+    width: 100%;
+   margin-left: 80px;
+
+}
+.menu-contact li{
+    height: 100%;
+    width: 50px;
     margin: 0;
     padding: 0;
 }
-
-.menu-mode{
-    width: 50px;
+.menu-mode, .menu-bars, .menu-login{
+    width: 20px;
     height: 53px;
     display: flex; 
     justify-content: center;
@@ -88,14 +97,6 @@ li {
     }
 }
 
-.menu-login{
-    width: 50px;
-    height: 53px;
-    display: flex; 
-    justify-content: center;
-    align-items: center;
-}
-
 .user-icon-button {
     background-color: rgb(255, 255, 255);
     border: white;
@@ -104,13 +105,6 @@ li {
     }
 }
 
-.menu-bars{
-    width: 50px;
-    height: 53px;
-    display: flex; 
-    justify-content: center;
-    align-items: center;
-}
 .menu-bars button {
     background-color: white;
     border: white;
@@ -131,7 +125,7 @@ li {
     justify-content: center;
     z-index: 1000;
 }
-  
+
 .modal-content {
     background: #e5e5e5;
     padding: 10px 10px 50px 10px;

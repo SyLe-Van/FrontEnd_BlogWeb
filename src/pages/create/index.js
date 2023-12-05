@@ -55,21 +55,27 @@ export default function CreatePost() {
   }
 
   return (
-    <div className={cx('create')}>
-      <form onSubmit={createNewPost} className={cx('create')}>
-        <input type="title"
-               placeholder={'Title'}
-               value={title}
-               onChange={ev => setTitle(ev.target.value)} />
-        <input type="category"
-               placeholder={'Categories'}
-               value={categories}
-               onChange={ev => setCategories(ev.target.value)}/>
-        <input type="file"
-               onChange={ev => setFiles(ev.target.files)} />
-        <ReactQuill onChange={setContent} value={content}/>
-        <button style={{marginTop:'5px'}} className={cx('button')}>Create post</button>
-      </form>
+    <div className={cx('wrapper')}>
+      <div className={cx('inner')}>
+        <form onSubmit={createNewPost} className={cx('create')}>
+          <input className={cx('input-create')}
+                type="title"
+                 placeholder={'Title'}
+                 value={title}
+                 onChange={ev => setTitle(ev.target.value)} />
+          <input 
+                className={cx('input-create')}
+                type="category"
+                 placeholder={'Categories'}
+                 value={categories}
+                 onChange={ev => setCategories(ev.target.value)}/>
+          <input className={cx('input-file')}
+                  type="file"
+                 onChange={ev => setFiles(ev.target.files)} />
+          <ReactQuill className={cx('content')} onChange={setContent} value={content}/>
+          <button style={{marginTop:'5px'}} className={cx('button')}>Create post</button>
+        </form>
+      </div>
     </div>
   );
 }

@@ -23,23 +23,27 @@ export default function DetailPost({categories, title}) {
         setIsModalOpen(true);
     };
 
+    useEffect(() => {
+        fetch('http://localhost:3000/getPost/' + id)
+            .then(response => {
+                response.json().then(postInfo => {
+                    setPostInfo(postInfo);
+                })
+            })
+    }, []);
+
     const handleOk = () => {
-        // fetch(`http://localhost:3000/deletePost/${id}`, {
-        //     method: 'DELETE',
-        //     credentials: 'include',
-        // })
-        // .then(response => {
-        //     if (response.ok) {
-        //         window.location.href = '/';
-        //     } else {
-        //         console.error('Failed to delete post');
-        //     }
-        // })
-        // .catch(error => {
-        //     console.error('Failed to delete post', error);
-        //     });
-        // setIsModalOpen(false);
-    };
+        fetch('http://localhost:3000/post/deletePost/' + id, {
+            method: 'DELETE',
+            credentials: 'include',
+        }).then(response => {
+            if (response.ok) {
+                window.location.href = '/';
+            }
+            setIsModalOpen(false);
+        })
+    }
+    
     const handleCancel = () => {
         setIsModalOpen(false);
     };
@@ -72,20 +76,21 @@ export default function DetailPost({categories, title}) {
                                 <h2>{postInfo.title}</h2> 
                             </div>
                             <div className={cx('text')} dangerouslySetInnerHTML={{ __html: postInfo.content }}></div> 
-                            <div className={cx('edit-update')}>
-                                <div className={cx('editpost')}>
-                                    <Link to={`/edit/${postInfo._id}`}>Edit</Link>
+                            <div className={cx('comment')}>
+                                <input type="text" placeholder="Add a comment..." />
+                                <div className={cx('comment-box')}>
+                                    <button><Link to={`/edit/${postInfo._id}`}>Edit</Link></button>
+                                    <div>
+                                        <>
+                                            <Button type="primary" onClick={showModal}>
+                                                Delete
+                                            </Button>
+                                            <Modal title="Delete Post" visible={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
+                                                <p>Are you sure you want to delete this post?</p>
+                                            </Modal>
+                                        </>
+                                    </div>
                                 </div>
-                                <div className={cx('deletepost')}>
-                                    <>
-                                        <Button type="primary" onClick={showModal}>
-                                            Delete
-                                        </Button>
-                                        <Modal title="Delete Post" visible={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
-                                            <p>Are you sure you want to delete this post?</p>
-                                        </Modal>
-                                    </>
-                                </div>    
                             </div>
                         </div>
                         <div className={cx('sidebar')}>
