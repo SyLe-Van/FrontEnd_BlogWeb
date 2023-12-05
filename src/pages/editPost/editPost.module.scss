@@ -4,4 +4,17 @@
     margin: 0 auto;
     padding: 0;
     box-sizing: border-box; 
+    display: flex;
+    justify-content: center;
+}
+.inner{
+    height: 100%;
+    width: 1200px;
+    
+}
+form{
+    margin-top: 30px;
+}
+input{
+    width: 700px;
 }

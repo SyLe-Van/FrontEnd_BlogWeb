@@ -1,4 +1,5 @@
 import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 export default function Editor({value, onChange}) {
     const modules = {
         toolbar: [
@@ -15,10 +16,13 @@ export default function Editor({value, onChange}) {
         ],
       };
     return (
-        <ReactQuill 
-            value={value}
-            theme={'snow'}
-            onChange={onChange} 
-            modules={modules} />
+        <div className=''>
+          <ReactQuill
+              style={{maxWidth: '800px'}}
+              value={value}
+              theme={'snow'}
+              onChange={onChange}
+              modules={modules} />
+        </div>
     )
 }

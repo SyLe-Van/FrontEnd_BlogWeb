@@ -56,20 +56,22 @@ export default function EditPost() {
     }
     return (
         <div className={cx('wrapper')}>
-            <form onSubmit={updatePost}>
-              <input type="title"
-                     placeholder={'Title'}
-                     value={title}
-                     onChange={ev => setTitle(ev.target.value)} />
-              <input type="category"
-                     placeholder={'Categories'}
-                     value={categories}
-                     onChange={ev => setCategories(ev.target.value)} />
-              <input type="file"
-                     onChange={ev => setFiles(ev.target.files)} />
-              <Editor onChange={setContent} value={content}/>
-              <button style={{marginTop:'5px'}}>Update Post</button>
-            </form>
+            <div className={cx('inner')}>
+                <form onSubmit={updatePost}>
+                  <input type="title"
+                         placeholder={'Title'}
+                         value={title}
+                         onChange={ev => setTitle(ev.target.value)} />
+                  <input type="category"
+                         placeholder={'Categories'}
+                         value={categories}
+                         onChange={ev => setCategories(ev.target.value)} />
+                  <input type="file"
+                         onChange={ev => setFiles(ev.target.files)} />
+                  <Editor className={cx('edit')} onChange={setContent} value={content}/>
+                  <button style={{marginTop:'5px'}}>Update Post</button>
+                </form>
+            </div>
         </div>
     )
 }
