@@ -9,39 +9,40 @@ import LifeStyle from '../lifestyle';
 import { UserContext } from '~/UserContext';
 const cx = classNames.bind(styles);
 
-export default function Login() {
+export default function Login({ onRegisterClick, showLogin }) {
+  const [showRegister, setShowRegister] = useState(false);
 
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
-    const [redirect, setRedirect] = useState(false);
-    const {setUserInfo} = useContext(UserContext);
-    async function login(event) {
-        const ev = event;
-        ev.preventDefault();
-        const response = await fetch('http://localhost:3000/login', {
-            method: 'POST',
-            body: JSON.stringify({username,password}),
-            headers: {'Content-Type':'application/json'},
-            credentials: 'include',
-        });
-        if (response.ok) {
-          response.json().then(userInfo => {
-            setUserInfo(userInfo);
-            setRedirect(true);
-            // window.location.href = '/'
-          });
-        } else {
-            alert('Login failed'); 
-        }
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [redirect, setRedirect] = useState(false);
+  const {setUserInfo} = useContext(UserContext);
+  async function login(event) {
+    const ev = event;
+    ev.preventDefault();
+    const response = await fetch('http://localhost:3000/login', {
+        method: 'POST',
+        body: JSON.stringify({username,password}),
+        headers: {'Content-Type':'application/json'},
+        credentials: 'include',
+    });
+    if (response.ok) {
+      response.json().then(userInfo => {
+        setUserInfo(userInfo);
+        setRedirect(true);
+        // window.location.href = '/'
+      });
+    } else {
+        alert('Login failed'); 
     }
-    if (redirect) {
-      return <Navigate to={'/'} />
-    }
-    return (
-      <form 
-        className={cx('login')} 
-        onSubmit={login}
-      >
+  }
+  if (redirect) {
+    return <Navigate to={'/'} />
+  }
+  return (
+    <form 
+      className={cx('login')} 
+      onSubmit={login}
+    >
       <h1
         className={cx('login-title')}
       >
@@ -65,14 +66,12 @@ export default function Login() {
       <p>
         No account?
       <span>
-        <Link 
-          className={cx('register')}
-          to="/register" 
+        <a 
+          className={cx('register-redirect')} 
+          onClick={onRegisterClick}
         >
-        <a>
           Register
         </a>
-        </Link>
       </span>
       </p>
     </form>

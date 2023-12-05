@@ -101,8 +101,8 @@ export default function Home() {
 
                 <div className={cx('row1')}></div>
 
-                {/* lifestyle post */}
-                <div className={cx('lifestyle-block')}>
+                
+                {/* <div className={cx('lifestyle-block')}>
                     <div className={cx('lifestyle-title')}>                 
                         <p>Lifestyle</p>
                     </div>
@@ -111,11 +111,10 @@ export default function Home() {
                             <Post {...lfposts} classname={cx('post')}/>
                         ))}
                     </div>
-                </div>
+                </div> */}
 
-                {/* fashion post */}
-
-                <div className={cx('fashion-block')}>
+                
+                {/* <div className={cx('fashion-block')}>
                     <div className={cx('fashion-title')}>
                             <p>Fashion</p>
                     </div>
@@ -124,11 +123,11 @@ export default function Home() {
                             <Post {...fpost} classname={cx('post')}/>
                         ))}
                     </div>
-                </div>
+                </div> */}
 
-                {/* cinema post */}
 
-                <div className={cx('cinema-block')}>
+
+                {/* <div className={cx('cinema-block')}>
                     <div className={cx('cinema-title')}>  
                         <p>Cinema</p>
                     </div>
@@ -137,11 +136,11 @@ export default function Home() {
                             <Post {...cpost} classname={cx('post')}/>
                         ))}
                     </div>
-                </div>
+                </div> */}
 
                 {/* grooming post */}
 
-                <div className={cx('grooming-block')}>
+                {/* <div className={cx('grooming-block')}>
                     <div className={cx('grooming-title')}>
                         <p>Grooming</p>
                     </div>
@@ -150,13 +149,13 @@ export default function Home() {
                             <Post {...gpost} classname={cx('post')}/>
                         ))}
                     </div>
-                </div>
+                </div> */}
 
-                <div className={cx('row2')}></div>
+                {/* <div className={cx('row2')}></div> */}
             </div>
-            <div className={cx('footer')}>
+            {/* <div className={cx('footer')}>
                     <Footer />
-            </div>
+            </div> */}
         </div>
     )
 }
