@@ -12,56 +12,31 @@ export default function RegisterPage({ onLoginClick }) {
   const [showLogin, setShowLogin] = useState(false);
 
 
-  async function register(ev) {
-    ev.preventDefault();
-    const response = await fetch('http://localhost:3000/register', {
-      method: 'POST',
-      body: JSON.stringify({ username, password }),
-      headers: { 'Content-Type': 'application/json' },
-    });
-    if (response.status === 200) {
-      alert('Registration successful');
-    } else {
-      alert('Registration failed');
+    async function register(ev) {
+      ev.preventDefault();
+      const response = await fetch('http://localhost:3000/register', {
+        method: 'POST',
+        body: JSON.stringify({username,password}),
+        headers: {'Content-Type':'application/json'},
+      });
+      if (response.status === 200) {
+        alert('Registration successful');
+      } else {
+        alert('Registration failed');
+      }
     }
+    return (
+      <form className={cx('register')} onSubmit={register}>
+        <h1>Register</h1>
+        <input type="text"
+               placeholder="username"
+               value={username}
+               onChange={ev => setUsername(ev.target.value)}/>
+        <input type="password"
+               placeholder="password"
+               value={password}
+               onChange={ev => setPassword(ev.target.value)}/>
+        <button>Register</button>
+      </form>
+    );
   }
-
-  return (
-    <form 
-      className={cx('register')} 
-      onSubmit={register}
-    >
-      <h1
-        className={cx('register-title')}
-      >
-        Register
-      </h1>
-      <input
-        type="text"
-        placeholder="username"
-        value={username}
-        onChange={(ev) => setUsername(ev.target.value)}
-      />
-      <input
-        type="password"
-        placeholder="password"
-        value={password}
-        onChange={(ev) => setPassword(ev.target.value)}
-      />
-      <button>
-        Register
-        </button>
-      <p>
-        Already have an account?
-        <span>
-          <a 
-            className={cx('login-redirect')} 
-            onClick={onLoginClick}
-          >
-            Login
-          </a>
-        </span>
-      </p>
-    </form>
-  );
-}

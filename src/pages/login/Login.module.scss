@@ -51,7 +51,7 @@ form.login h1{
     transition: transform 0.3s ease-out;
     transform: translateX(0);
   }
-
+  
   .login.visible {
     transform: translateX(-100%);
   }

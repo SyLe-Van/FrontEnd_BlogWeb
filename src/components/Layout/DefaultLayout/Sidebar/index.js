@@ -13,6 +13,7 @@ import { Checkbox, Form, Input } from 'antd';
 import { Navigate } from 'react-router-dom';
 import { UserContext,  } from '~/UserContext';
 import Login from '~/pages/login';
+import RegisterPage from '~/pages/register';
 
 const cx = classNames.bind(styles);
 
@@ -23,6 +24,8 @@ export default function Sidebar() {
     const [showDropdown, setShowDropdown] = useState(false);
     const {setUserInfo, userInfo} = useContext(UserContext);
     const [showLogin, setShowLogin] = useState(false);
+    const [showRegister, setShowRegister] = useState(false);
+
     const showDrawer = () => {
         setOpen(true);
     };
@@ -53,6 +56,20 @@ export default function Sidebar() {
     const toggleLogin = () => {
         setShowLogin(!showLogin);
     };
+    
+    const toggleRegister = () => {
+        setShowRegister(!showRegister);
+    };
+
+    const toggleLoginModal = () => {
+        setShowLogin(!showLogin);
+        setShowRegister(false);
+    }
+
+    const toggleRegisterModal = () => {
+        setShowRegister(!showRegister);
+        setShowLogin(false);
+    }
 
     const username = userInfo?.username;
 
@@ -87,25 +104,6 @@ export default function Sidebar() {
                                         </button>
                                     </li>
                                 <li className={cx('menu-login')}>
-                                    {/* <button
-                                        className={cx('user-icon-button')} 
-                                        onClick={() => setShowLogin(!showLogin)}
-                                    >
-                                        <FontAwesomeIcon icon={faPlus} style={{ color: '#000000' }} />
-                                    </button>
-                                    {showLogin && (
-                                        <div className={cx('login-modal')}>
-                                            <div className={cx('modal-content')}>
-                                                <button 
-                                                    className={cx('login-modal-close-button')} 
-                                                    onClick={toggleLogin}
-                                                >
-                                                    X
-                                                </button>
-                                                <Login />
-                                            </div>
-                                        </div>
-                                    )} */}
                                     <Link to="/create">
                                         <Button className={cx('add-post-button')}>
                                             <FontAwesomeIcon icon={faPlus} style={{color: "#000000",}} />
@@ -138,18 +136,33 @@ export default function Sidebar() {
                                         <FontAwesomeIcon icon={faUser} style={{ color: '#000000' }} />
                                     </button>
                                     {showLogin && (
-                                        <div className={cx('login-modal')}>
+                                        <div className={cx('modal-wrapper')}>
                                             <div className={cx('modal-content')}>
                                                 <button 
-                                                    className={cx('login-modal-close-button')} 
+                                                    className={cx('modal-close-button')} 
                                                     onClick={toggleLogin}
                                                 >
                                                     X
                                                 </button>
-                                                <Login />
+                                                <Login onRegisterClick={toggleRegisterModal} />
                                             </div>
                                         </div>
                                     )}
+
+                                    {showRegister && (
+                                        <div className={cx('modal-wrapper')}>
+                                            <div className={cx('modal-content')}>
+                                                <button 
+                                                    className={cx('modal-close-button')} 
+                                                    onClick={toggleRegister}
+                                                >
+                                                    X
+                                                </button>
+                                                <RegisterPage onLoginClick={toggleLoginModal}/>
+                                            </div>
+                                        </div>
+                                    )}
+
                                     {/* <Link to="/login">
                                         <FontAwesomeIcon icon={faUser} style={{color: "#000000",}} />
                                     </Link> */}
