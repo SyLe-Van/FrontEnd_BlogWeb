@@ -21,7 +21,11 @@ function Footer() {
                     <div className={cx('inner-wrap2')}>
                         <h6>SEARCH</h6>
                         <div className={cx('sub-inner-wrap')}>
-                            <input type="text" placeholder="Search.."></input>
+                            <input 
+                                
+                                type="text"
+                                placeholder="Search..">
+                            </input>
                             <button className={cx('icon')}>
                                 <FontAwesomeIcon icon={faSearch} />
                             </button>
