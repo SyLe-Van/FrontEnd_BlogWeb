@@ -14,7 +14,7 @@ import { Navigate } from 'react-router-dom';
 import { UserContext,  } from '~/UserContext';
 import Login from '~/pages/login';
 import RegisterPage from '~/pages/register';
-
+import DarkMode from '~/components/DarkMode/DarkMode';
 const cx = classNames.bind(styles);
 
 export default function Sidebar() {
@@ -70,7 +70,6 @@ export default function Sidebar() {
         setShowRegister(!showRegister);
         setShowLogin(false);
     }
-
     const username = userInfo?.username;
 
     return (    
@@ -99,9 +98,9 @@ export default function Sidebar() {
                         <div className={cx('menu-contact')}>
                             <ul>
                                 <li className={cx('menu-mode')}>
-                                        <button className={cx('moon')}>
-                                            <FontAwesomeIcon icon={faMoon} style={{color: "#000000",}} />
-                                        </button>
+                                        
+                                    <DarkMode />
+                                        
                                     </li>
                                 <li className={cx('menu-login')}>
                                     <Link to="/create">
@@ -124,9 +123,9 @@ export default function Sidebar() {
                         <div className={cx('menu-contact')}>
                             <ul>
                                 <li className={cx('menu-mode')}>
-                                    <button className={cx('moon')}>
-                                        <FontAwesomeIcon icon={faMoon} style={{color: "#000000",}} />
-                                    </button>
+                                    
+                                    <DarkMode />
+                                    
                                 </li>
                                 <li className={cx('menu-login')}>
                                     <button

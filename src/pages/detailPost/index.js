@@ -24,7 +24,7 @@ export default function DetailPost({categories, title}) {
     };
 
     useEffect(() => {
-        fetch('http://localhost:3000/getPost/' + id)
+        fetch('http://localhost:3000/post/getPost/' + id)
             .then(response => {
                 response.json().then(postInfo => {
                     setPostInfo(postInfo);

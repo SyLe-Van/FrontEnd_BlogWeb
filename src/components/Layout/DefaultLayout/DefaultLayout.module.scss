@@ -1,9 +1,23 @@
+:root{
+    --body_background: #ffffff;
+    --body_color: #444444;
+    --body_inner:  #545454;
+    --body_text: #000000;
+}
+[data-theme="dark"] {
+    --body_background: #171616;
+    --body_color: #ffffff;
+    --body_inner:  #545454;
+    --body_text: #ffffff;
+}
+
 .wrapper {
-    width: 1410px;
+    width: 1440px;
     height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: var(--body_background);
 }
 
 .top {
