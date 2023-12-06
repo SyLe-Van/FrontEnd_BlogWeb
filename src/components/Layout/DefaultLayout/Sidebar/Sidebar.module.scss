@@ -17,7 +17,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: rgb(255, 255, 255);
+    // background-color: rgb(255, 255, 255);
+    background-color: var(--body_background);
     box-shadow: 0px -1px 0px rgb(0 0 0 / 15%);
 }
 //fragment
@@ -42,8 +43,6 @@ li {
     justify-content: center;
     list-style-type: none;
     width: 600px;
-    
-
 }
 .menu-list ul, .menu-list li{
     width: 100%;
@@ -53,7 +52,7 @@ li {
 }
 .menu-list li a {
     text-decoration: none;
-    color: #000000;
+    color: var(--body_color);
     font-family: Montserrat;
     margin-left: 40px;
     box-sizing: border-box;
@@ -74,6 +73,7 @@ li {
     height: 100%;
     width: 100%;
    margin-left: 80px;
+   gap: 30px
 
 }
 .menu-contact li{
@@ -111,6 +111,8 @@ li {
     :hover{
         cursor: pointer;
     }
+    width: 30px;
+    margin-right: 40px;
 }
 
 .modal-wrapper {
@@ -145,4 +147,9 @@ li {
     border-radius: 50px;
     background-color: #cecece;
 }
+.add-post-button{
+    border: none;
+}
+.menu-bar{
 
+}

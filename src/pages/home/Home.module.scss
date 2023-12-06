@@ -159,11 +159,17 @@
     margin-top: 60px;
 }
 .left-text h1{
-    text-decoration: none;
+    color: var(--body_color);
 }
 
 .b-post a h1 {
-    text-decoration: none;
+    color: var(--body_color);
+}
+.t-post a h1 {
+    color: var(--body_color);
+}
+.right-text h1{
+    color: var(--body_color);
 }
  
   
