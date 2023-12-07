@@ -18,7 +18,7 @@ export default function Home() {
                         <div className={cx('left-content')}>  
                             
                                 <div className={cx('top-post')}>
-                                    <Link to={'http://localhost:3000/post/656e1871cdc7b9af90853d59'}>
+                                    <Link to={'http://localhost:3001/post/656e1871cdc7b9af90853d59'}>
                                         <a>
                                             <img src='https://mannup.vn/wp-content/uploads/2015/12/image4.jpeg'></img>
                                         </a>
@@ -82,7 +82,9 @@ export default function Home() {
                     </div>
                 </div>
 
-                <div className={cx('row1')}></div>
+                <div className={cx('row1')}>
+                    <h2>Thanks for visiting us!</h2>
+                </div>
             </div>
         </div>
     )

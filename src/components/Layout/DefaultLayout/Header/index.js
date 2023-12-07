@@ -9,7 +9,7 @@ export default function Header() {
         <div className={cx('wrapper')}>
             <div className={cx('inner')}>
                 <div className={cx('logo')}>
-                    <Link to="/" >MANNUP</Link>
+                    <Link to="/" >MANLYMIND</Link>
                 </div>
             </div>
         </div>

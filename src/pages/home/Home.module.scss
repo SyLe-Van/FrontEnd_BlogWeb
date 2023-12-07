@@ -99,11 +99,14 @@
 }
 ///////////////////////// row
 
-.row1, .row2{
+.row1{
     height: 110px;
     width: 100%;
     background-color: rgb(236, 237, 237); 
     margin-top: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 // lifestyle css

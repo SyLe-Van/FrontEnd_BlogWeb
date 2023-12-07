@@ -175,10 +175,11 @@ export default function Sidebar() {
                                     <Drawer
                                         placement="right"
                                         onClose={onClose} open={open}
-                                        size={size}
+                                        
                                     >
-                                    <p>Nothing!</p>
-                                    
+                                        <div>
+                                            <Contact />
+                                        </div>
                                     </Drawer>
                                 </li>
                             </ul>

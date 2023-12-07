@@ -10,7 +10,7 @@ export default function Cinema() {
     const [posts,setPosts] = useState([]);
     
     useEffect(() => {
-        fetch(`http://localhost:3000/${cinema}`).then(response => {
+        fetch(`http://localhost:3000/post/getPostByCategories/${cinema}`).then(response => {
             response.json().then(posts => {
                 setPosts(posts);});
             });

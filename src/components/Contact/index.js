@@ -6,18 +6,21 @@ const cx = classNames.bind(styles);
 function Contact() {
     return (
         <div className={cx('wrapper')}>
-            <ul>
-                <li>
-                    <a href="https://www.facebook.com/sy.cung.7">
-                        <FontAwesomeIcon icon={faFacebook} style={{ color: '#000000' }} />
-                    </a>
-                </li>
-                <li>
-                    <a href="https://www.instagram.com/">
-                        <FontAwesomeIcon icon={faInstagram} style={{ color: '#000000' }} />
-                    </a>
-                </li>
-            </ul>
+            <div className={cx('contact')}>
+                <h2>Contact us........</h2>
+                <div className={cx('button')}>
+                    <button>
+                        <a href="https://www.facebook.com/sy.cung.7">
+                            <FontAwesomeIcon icon={faFacebook} style={{ color: '#000000' }} />
+                        </a>
+                    </button>
+                    <button>
+                        <a href="https://www.instagram.com/">
+                            <FontAwesomeIcon icon={faInstagram} style={{ color: '#000000' }} />
+                        </a>
+                    </button>
+                </div>
+            </div>
         </div>
     );
 }
