@@ -11,7 +11,7 @@ export default function LifeStyle() {
     const grooming = 'grooming';
     
     useEffect(() => {
-        fetch(`http://localhost:3000/post/getPostByCategories/${grooming}`).then(response => {
+        fetch(`https://backend-blogwebsite.onrender.com/post/getPostByCategories/${grooming}`).then(response => {
             response.json().then(posts => {
                 setPosts(posts);});
             });
