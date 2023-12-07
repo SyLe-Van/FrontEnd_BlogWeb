@@ -42,7 +42,6 @@ export default function CreatePost() {
     const response = await fetch('https://backend-blogwebsite.onrender.com/post/createPost', {
       method: 'POST',
       body: data,
-      headers: {'Content-Type':'application/json'},
       credentials: 'include',
     });
     console.log(await response.json())
