@@ -10,7 +10,7 @@ export default function LifeStyle() {
     const [posts,setPosts] = useState([]);
     const lifestyle = 'lifestyle';
     useEffect(() => {
-        fetch(`http://localhost:3000/post/getPostByCategories/${lifestyle}`).then(response => {
+        fetch(`https://backend-blogweb.onrender.com/post/getPostByCategories/${lifestyle}`).then(response => {
             response.json().then(posts => {
                 setPosts(posts);});
             });
