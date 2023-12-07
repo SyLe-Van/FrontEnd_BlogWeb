@@ -11,7 +11,7 @@ export default function Fashion() {
     const [posts,setPosts] = useState([]);
     
     useEffect(() => {
-        fetch(`https://backend-blogweb.onrender.com/post/getPostByCategories/${fashion}`).then(response => {
+        fetch(`http://localhost:3000/post/getPostByCategories/${fashion}`).then(response => {
             response.json().then(posts => {
                 setPosts(posts);});
             });

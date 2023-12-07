@@ -63,5 +63,5 @@
         "eslint": "^8.53.0",
         "react-app-rewired": "^2.2.1"
     },
-    "proxy": "https://backend-blogweb.onrender.com"
+    "proxy": "http://localhost:3000"
 }
