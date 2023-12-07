@@ -39,7 +39,7 @@ export default function CreatePost() {
     data.append('file', files[0]);
    
     ev.preventDefault();
-    const response = await fetch('http://localhost:3000/post', {
+    const response = await fetch('http://localhost:3000/post/createPost', {
       method: 'POST',
       body: data,
       credentials: 'include',
