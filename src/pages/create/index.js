@@ -31,17 +31,17 @@ export default function CreatePost() {
   const [redirect, setRedirect] = useState(false);
 
   async function createNewPost(ev) {
-    const data = new FormData();
-
-    data.append('title', title);
-    data.append('categories', categories);
-    data.append('content', content);
-    data.append('file', files[0]);
+    // const data = new FormData();
+    // data.append('title', title);
+    // data.append('categories', categories);
+    // data.append('content', content);
+    // data.append('file', files[0]);
    
     ev.preventDefault();
     const response = await fetch('https://backend-blogwebsite.onrender.com/post/createPost', {
       method: 'POST',
-      body: data,
+      body: JSON.stringify({title, categories, content, files:[0]}),
+      headers: {'Content-Type':'application/json'},
       credentials: 'include',
     });
     console.log(await response.json())
