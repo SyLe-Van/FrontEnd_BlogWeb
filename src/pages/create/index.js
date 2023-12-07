@@ -51,7 +51,7 @@ export default function CreatePost() {
   }
   
   if (redirect) {
-    return <Navigate to={`/${categories}`} />
+    return <Navigate to={'/'} />
   }
 
   return (
@@ -73,7 +73,7 @@ export default function CreatePost() {
                   type="file"
                  onChange={ev => setFiles(ev.target.files)} />
           <ReactQuill className={cx('content')} onChange={setContent} value={content}/>
-          <button style={{marginTop:'5px'}} className={cx('button')}>Create post</button>
+          <button style={{marginTop:'50px'}} className={cx('button')}>Create post</button>
         </form>
       </div>
     </div>

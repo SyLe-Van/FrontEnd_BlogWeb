@@ -28,7 +28,6 @@ export default function DetailPost({categories, title}) {
             .then(response => {
                 response.json().then(postInfo => {
                     setPostInfo(postInfo);
-                    console.log(postInfo);
                 })
             })
     }, []);
@@ -39,7 +38,9 @@ export default function DetailPost({categories, title}) {
             credentials: 'include',
         }).then(response => {
             if (response.ok) {
-                window.location.href = `/${postInfo.categories}}`;
+                const encodedCategory = encodeURIComponent(postInfo.categories);
+                window.location.href = `/${encodedCategory}`;
+                // <Navigate to={`/${postInfo.categories}`} />
             }
             setIsModalOpen(false);
         })
@@ -63,7 +64,7 @@ export default function DetailPost({categories, title}) {
             <div className={cx('wrapper')}>
                 <div className={cx('inner')}>
                     <div className={cx('image')}>
-                        <img src={`http://localhost:3000/${postInfo.cover}`} alt="Post Cover" />
+                        <img src={`http://localhost:3000/static/${postInfo.cover}`} alt="Post Cover" />
                         {/* <p className={cx('categories')}>{categories}</p>
                         <h2 className={cx('title')}>{title}</h2> */}
                     </div>
