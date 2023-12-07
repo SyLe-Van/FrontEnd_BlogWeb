@@ -20,7 +20,7 @@ export default function Login({ onRegisterClick, showLogin }) {
   async function login(event) {
     const ev = event;
     ev.preventDefault();
-    const response = await fetch('http://localhost:3000/login', {
+    const response = await fetch('https://backend-blogweb.onrender.com/login', {
         method: 'POST',
         body: JSON.stringify({username,password}),
         headers: {'Content-Type':'application/json'},
