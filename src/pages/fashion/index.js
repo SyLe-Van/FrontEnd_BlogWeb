@@ -11,13 +11,13 @@ export default function Fashion() {
     const [posts,setPosts] = useState([]);
     
     useEffect(() => {
-        fetch(`http://localhost:3000/post/getPostByCategories/${fashion}`).then(response => {
+        fetch(`https://backend-blogweb.onrender.com/post/getPostByCategories/${fashion}`).then(response => {
             response.json().then(posts => {
                 setPosts(posts);});
             });
              
     }, []);
-    
+     
     return(
         <div className={cx('wrapper')}>
             <div className={cx('inner')}>
