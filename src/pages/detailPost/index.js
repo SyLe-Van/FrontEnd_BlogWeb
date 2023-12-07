@@ -24,21 +24,22 @@ export default function DetailPost({categories, title}) {
     };
 
     useEffect(() => {
-        fetch('https://backend-blogweb.onrender.com/post/getPost/' + id)
+        fetch('http://localhost:3000/post/getPost/' + id)
             .then(response => {
                 response.json().then(postInfo => {
                     setPostInfo(postInfo);
+                    console.log(postInfo);
                 })
             })
     }, []);
 
     const handleOk = () => {
-        fetch('https://backend-blogweb.onrender.com/post/deletePost/' + id, {
+        fetch('http://localhost:3000/post/deletePost/' + id, {
             method: 'DELETE',
             credentials: 'include',
         }).then(response => {
             if (response.ok) {
-                window.location.href = '/';
+                window.location.href = `/${postInfo.categories}}`;
             }
             setIsModalOpen(false);
         })
@@ -49,7 +50,7 @@ export default function DetailPost({categories, title}) {
     };
 
     useEffect(() => {
-        fetch(`https://backend-blogweb.onrender.com/getPost/${id}`)
+        fetch(`http://localhost:3000/getPost/${id}`)
             .then(response => {
                 response.json().then(postInfo => {
                     setPostInfo(postInfo);
@@ -62,7 +63,7 @@ export default function DetailPost({categories, title}) {
             <div className={cx('wrapper')}>
                 <div className={cx('inner')}>
                     <div className={cx('image')}>
-                        <img src={`https://backend-blogweb.onrender.com/static/${postInfo.cover}`} alt="Post Cover" />
+                        <img src={`http://localhost:3000/${postInfo.cover}`} alt="Post Cover" />
                         {/* <p className={cx('categories')}>{categories}</p>
                         <h2 className={cx('title')}>{title}</h2> */}
                     </div>

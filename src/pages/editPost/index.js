@@ -41,7 +41,7 @@ export default function EditPost() {
             data.append('file', files?.[0]);
             
         }
-        const response = await fetch('https://backend-blogweb.onrender.com/post', {
+        const response = await fetch('http://localhost:3000/post', {
             method: 'PUT',
             body: data,
             credentials: 'include',       
