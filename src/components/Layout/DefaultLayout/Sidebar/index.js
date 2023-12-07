@@ -37,7 +37,7 @@ export default function Sidebar() {
         setOpen(false);
     };
     useEffect(() => {
-        fetch('http://localhost:3000/profile', {
+        fetch('https://backend-blogweb.onrender.com/profile', {
             credentials: 'include',
         }).then(response => {
             response.json().then(userInfo => {
@@ -46,7 +46,7 @@ export default function Sidebar() {
         })
     }, []);
     function logout() {
-        fetch('http://localhost:3000/logout', {
+        fetch('https://backend-blogweb.onrender.com/logout', {
           credentials: 'include',
           method: 'POST',
         });
