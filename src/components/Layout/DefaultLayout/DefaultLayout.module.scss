@@ -12,8 +12,8 @@
 }
 
 .wrapper {
-    width: 1420px;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -33,10 +33,12 @@
     display: flex;
     justify-self: center;
     margin: 0 auto;
+    background-color: var(--body_background);
 }
 
 .bottom {
     left: 0;
     bottom: 0;
     width: 100vw;
+    background-color: var(--body_background);
 }

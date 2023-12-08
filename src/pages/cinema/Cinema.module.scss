@@ -1,6 +1,6 @@
 .wrapper{
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     margin: 0 auto;
     padding: 0;
     box-sizing: border-box;
@@ -24,7 +24,9 @@
     width: 100%;
     height: 72px;
     margin-top: 30px;
-    
+}
+.cinema-block{
+    color: var(--body_text);
 }
 .cinema-title{
     width: 100%;

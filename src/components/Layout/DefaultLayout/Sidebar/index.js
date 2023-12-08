@@ -11,7 +11,7 @@ import { Button, Drawer, Space, Dropdown } from 'antd';
 import { LockOutlined, UserOutlined, DownOutlined, SmileOutlined } from '@ant-design/icons';
 import { Checkbox, Form, Input } from 'antd';
 import { Navigate } from 'react-router-dom';
-import { UserContext,  } from '~/UserContext';
+import { UserContext } from '~/UserContext';
 import Login from '~/pages/login';
 import RegisterPage from '~/pages/register';
 import DarkMode from '~/components/DarkMode/DarkMode';
@@ -22,7 +22,7 @@ export default function Sidebar() {
     const [open, setOpen] = useState(false);
     const [size, setSize] = useState();
     const [showDropdown, setShowDropdown] = useState(false);
-    const {setUserInfo, userInfo} = useContext(UserContext);
+    const { setUserInfo, userInfo } = useContext(UserContext);
     const [showLogin, setShowLogin] = useState(false);
     const [showRegister, setShowRegister] = useState(false);
 
@@ -37,18 +37,18 @@ export default function Sidebar() {
         setOpen(false);
     };
     useEffect(() => {
-        fetch('https://backend-blogwebsite.onrender.com/profile', {
+        fetch('http://localhost:3000/profile', {
             credentials: 'include',
-        }).then(response => {
-            response.json().then(userInfo => {
+        }).then((response) => {
+            response.json().then((userInfo) => {
                 setUserInfo(userInfo);
-            })
-        })
+            });
+        });
     }, []);
     function logout() {
-        fetch('https://backend-blogwebsite.onrender.com/logout', {
-          credentials: 'include',
-          method: 'POST',
+        fetch('http://localhost:3000/logout', {
+            credentials: 'include',
+            method: 'POST',
         });
         setUserInfo(null);
     }
@@ -56,7 +56,7 @@ export default function Sidebar() {
     const toggleLogin = () => {
         setShowLogin(!showLogin);
     };
-    
+
     const toggleRegister = () => {
         setShowRegister(!showRegister);
     };
@@ -64,15 +64,15 @@ export default function Sidebar() {
     const toggleLoginModal = () => {
         setShowLogin(!showLogin);
         setShowRegister(false);
-    }
+    };
 
     const toggleRegisterModal = () => {
         setShowRegister(!showRegister);
         setShowLogin(false);
-    }
+    };
     const username = userInfo?.username;
 
-    return (    
+    return (
         <aside className={cx('wrapper')}>
             <div className={cx('inner')}>
                 <div className={cx('fragment')}></div>
@@ -98,96 +98,72 @@ export default function Sidebar() {
                         <div className={cx('menu-contact')}>
                             <ul>
                                 <li className={cx('menu-mode')}>
-                                        
                                     <DarkMode />
-                                        
-                                    </li>
+                                </li>
                                 <li className={cx('menu-login')}>
                                     <Link to="/create">
                                         <Button className={cx('add-post-button')}>
-                                            <FontAwesomeIcon icon={faPlus} style={{color: "#000000",}} />
+                                            <FontAwesomeIcon icon={faPlus} style={{ color: '#000000' }} />
                                         </Button>
-                                    </Link> 
+                                    </Link>
                                 </li>
                                 <li className={cx('menu-bars')}>
                                     <Button className={cx('logout')} onClick={logout}>
-                                        <FontAwesomeIcon icon={faRightFromBracket} style={{color: "#000000",}}/>
+                                        <FontAwesomeIcon icon={faRightFromBracket} style={{ color: '#000000' }} />
                                     </Button>
                                 </li>
                             </ul>
                         </div>
                     </>
                 )}
-                {
-                    !username && (
-                        <div className={cx('menu-contact')}>
-                            <ul>
-                                <li className={cx('menu-mode')}>
-                                    
-                                    <DarkMode />
-                                    
-                                </li>
-                                <li className={cx('menu-login')}>
-                                    <button
-                                        className={cx('user-icon-button')} 
-                                        onClick={() => setShowLogin(!showLogin)}
-                                    >
-                                        <FontAwesomeIcon icon={faUser} style={{ color: '#000000' }} />
-                                    </button>
-                                    {showLogin && (
-                                        <div className={cx('modal-wrapper')}>
-                                            <div className={cx('modal-content')}>
-                                                <button 
-                                                    className={cx('modal-close-button')} 
-                                                    onClick={toggleLogin}
-                                                >
-                                                    X
-                                                </button>
-                                                <Login onRegisterClick={toggleRegisterModal} />
-                                            </div>
+                {!username && (
+                    <div className={cx('menu-contact')}>
+                        <ul>
+                            <li className={cx('menu-mode')}>
+                                <DarkMode />
+                            </li>
+                            <li className={cx('menu-login')}>
+                                <button className={cx('user-icon-button')} onClick={() => setShowLogin(!showLogin)}>
+                                    <FontAwesomeIcon icon={faUser} style={{ color: '#000000' }} />
+                                </button>
+                                {showLogin && (
+                                    <div className={cx('modal-wrapper')}>
+                                        <div className={cx('modal-content')}>
+                                            <button className={cx('modal-close-button')} onClick={toggleLogin}>
+                                                X
+                                            </button>
+                                            <Login onRegisterClick={toggleRegisterModal} />
                                         </div>
-                                    )}
+                                    </div>
+                                )}
 
-                                    {showRegister && (
-                                        <div className={cx('modal-wrapper')}>
-                                            <div className={cx('modal-content')}>
-                                                <button 
-                                                    className={cx('modal-close-button')} 
-                                                    onClick={toggleRegister}
-                                                >
-                                                    X
-                                                </button>
-                                                <RegisterPage onLoginClick={toggleLoginModal}/>
-                                            </div>
+                                {showRegister && (
+                                    <div className={cx('modal-wrapper')}>
+                                        <div className={cx('modal-content')}>
+                                            <button className={cx('modal-close-button')} onClick={toggleRegister}>
+                                                X
+                                            </button>
+                                            <RegisterPage onLoginClick={toggleLoginModal} />
                                         </div>
-                                    )}
-
-                                    {/* <Link to="/login">
-                                        <FontAwesomeIcon icon={faUser} style={{color: "#000000",}} />
-                                    </Link> */}
-                                </li>
-                                <li className={cx('menu-bars')}>
-                                    <Space>
-                                        <Button className={cx('bars')} onClick={showLargeDrawer}>
-                                            <FontAwesomeIcon icon={faBars} style={{color: "#000000",}} />
-                                        </Button>
-                                    </Space>
-                                    <Drawer
-                                        placement="right"
-                                        onClose={onClose} open={open}
-                                        
-                                    >
-                                        <div>
-                                            <Contact />
-                                        </div>
-                                    </Drawer>
-                                </li>
-                            </ul>
-                        </div>
-                    )
-                }
+                                    </div>
+                                )}
+                            </li>
+                            <li className={cx('menu-bars')}>
+                                <Space>
+                                    <Button className={cx('bars')} onClick={showLargeDrawer}>
+                                        <FontAwesomeIcon icon={faBars} style={{ color: '#000000' }} />
+                                    </Button>
+                                </Space>
+                                <Drawer placement="right" onClose={onClose} open={open}>
+                                    <div>
+                                        <Contact />
+                                    </div>
+                                </Drawer>
+                            </li>
+                        </ul>
+                    </div>
+                )}
             </div>
         </aside>
     );
 }
-
