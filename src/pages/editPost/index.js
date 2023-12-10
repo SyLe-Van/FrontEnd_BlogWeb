@@ -13,29 +13,16 @@ export default function EditPost() {
     const [categories, setCategories] = useState('');
     const [content, setContent] = useState('');
     const [files, setFiles] = useState('');
-    const [cover, setCover] = useState('');
+    // const [cover, setCover] = useState('');
     const [redirect, setRedirect] = useState(false);
 
-    // useEffect(() => {
-    //     fetch('http://localhost:3000/post/' + id)
-    //         .then(response => {
-    //         response.json().then(postInfo => {
-    //             setTitle(postInfo.title);
-    //             setCategories(postInfo.categories);
-    //             setContent(postInfo.content);
-    //             setCover(postInfo.cover);
-    //             })
-    //         }
-    //         )
-    // }, [])
     useEffect(() => {
         axios
-            .get(`http://localhost:3000/post/${id}`)
+            .get(`http://localhost:3000/post/getPost/${id}`)
             .then((response) => {
                 setTitle(response.data.title);
                 setCategories(response.data.categories);
                 setContent(response.data.content);
-                setCover(response.data.cover);
             })
             .catch((error) => {
                 console.error('Error fetching post:', error);
@@ -45,19 +32,19 @@ export default function EditPost() {
     async function updatePost(ev) {
         ev.preventDefault();
         const data = new FormData();
-        data.append('title', title);
-        data.append('categories', categories);
-        data.append('content', content);
-        data.append('id', id);
+        data.set('title', title);
+        data.set('categories', categories);
+        data.set('content', content);
+        data.set('id', id);
         if (files?.[0]) {
-            data.append('file', files?.[0]);
+            data.set('file', files?.[0]);
         }
         try {
-            const response = await axios.put(`http://localhost:3000/post`, data, {
+            const response = await axios.put(`http://localhost:3000/post/updatePost`, data, {
                 withCredentials: true,
             });
-
             if (response.status === 200) {
+                alert('Post updated successfully!');
                 setRedirect(true);
             }
         } catch (error) {

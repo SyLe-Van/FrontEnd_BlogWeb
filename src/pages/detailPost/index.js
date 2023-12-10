@@ -54,7 +54,7 @@ export default function DetailPost({ categories, title }) {
 
     useEffect(() => {
         axios
-            .get(`http://localhost:3000/getPost/${id}`)
+            .get(`http://localhost:3000/post/getPost/${id}`)
             .then((response) => {
                 setPostInfo(response.data);
             })
