@@ -94,7 +94,10 @@ export default function Sidebar() {
                         <div className={cx('menu-contact')}>
                             <ul>
                                 <li className={cx('menu-mode')}>
-                                    <button className={cx('search-icon')}>
+                                    <button 
+                                        className={cx('search-icon')} 
+                                        onClick={() => setShowSearch(!showSearch)}
+                                    >
                                         <FontAwesomeIcon icon={faMagnifyingGlass} style={{ color: '#000000' }} />
                                     </button>
                                     {showSearch && (
@@ -128,7 +131,10 @@ export default function Sidebar() {
                     <div className={cx('menu-contact')}>
                         <ul>
                             <li className={cx('menu-mode')}>
-                                <button className={cx('search-icon')}>
+                                <button 
+                                    className={cx('search-icon')}
+                                    onClick={() => setShowSearch(!showSearch)}
+                                >
                                     <FontAwesomeIcon icon={faMagnifyingGlass} style={{ color: '#000000' }} />
                                 </button>
                                 {showSearch && (

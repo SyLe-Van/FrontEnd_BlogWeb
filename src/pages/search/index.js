@@ -37,7 +37,7 @@ export default function Search({ onSearchClick }) {
         <form className={cx('search')} onSubmit={search}>
             <h1>Search Blogs</h1>
             <input
-                className={cx('register-input')}
+                className={cx('search-input')}
                 type="text"
                 placeholder="Enter title of blog"
                 // value={username}

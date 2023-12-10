@@ -14,18 +14,19 @@ input:focus {
     border: 2px solid #000000;
     outline: none;
 }
-.login-input{
+.search-input{
     display: block;
     margin-bottom: 10px;
     width: 400px;
+    height: 50px;
     padding: 10px 10px 10px 10px;
     border: 2px solid #ddd;
     border-radius: 40px;
     background-color: #ffffff;
 }
-.login button{
+.search button{
     cursor: pointer;
-    width: 400px;
+    width: 100px;
     display: block;
     margin-bottom: 10px;
     background-color: #000000;
