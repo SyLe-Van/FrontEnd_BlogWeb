@@ -48,7 +48,7 @@ export default function CreatePost() {
 
         try {
             const response = await axios.post('https://backend-blogwebsite.onrender.com/post/createPost', data, {
-                withCredentials: true,
+                withCredentials: false,
             });
 
             console.log(response.data);
