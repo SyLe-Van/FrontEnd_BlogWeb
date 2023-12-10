@@ -7,29 +7,26 @@ const cx = classNames.bind(styles);
 
 export default function Cinema() {
     const cinema = 'cinema';
-    const [posts,setPosts] = useState([]);
-    
+    const [posts, setPosts] = useState([]);
+
     useEffect(() => {
-        fetch(`http://localhost:3000/post/getPostByCategories/${cinema}`).then(response => {
-            response.json().then(posts => {
-                setPosts(posts);});
+        fetch(`https://backend-blogwebsite.onrender.com/post/getPostByCategories/${cinema}`).then((response) => {
+            response.json().then((posts) => {
+                setPosts(posts);
             });
-             
+        });
     }, []);
-    
-    return(
+
+    return (
         <div className={cx('wrapper')}>
             <div className={cx('inner')}>
                 <div className={cx('cinema-block')}>
                     <p className={cx('cinema-title')}>Cinema</p>
                 </div>
                 <div className={cx('cinema-contain')}>
-                    {posts.length > 0 && posts.map(post => (
-                        <Post {...post} classname={cx('post')}/>
-                    ))}
+                    {posts.length > 0 && posts.map((post) => <Post {...post} classname={cx('post')} />)}
                 </div>
             </div>
         </div>
-    )
+    );
 }
-

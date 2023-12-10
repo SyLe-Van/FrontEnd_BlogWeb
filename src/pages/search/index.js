@@ -17,7 +17,7 @@ export default function Search({ onSearchClick }) {
             ev.preventDefault();
             try {
                 const response = await axios
-                    .get('http://localhost:3000/post/search?', {
+                    .get('https://backend-blogwebsite.onrender.com/post/search?', {
                         params: { query: query },
                     })
                     .then((response) => {
