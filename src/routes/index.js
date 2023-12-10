@@ -9,6 +9,7 @@ import CreatePost from '~/pages/create';
 import Post from '~/pages/post';
 import DetailPost from '~/pages/detailPost';
 import EditPost from '~/pages/editPost';
+import Search from '~/pages/search';
 
 // dont need login to view
 const publicRoutes = [
@@ -23,6 +24,7 @@ const publicRoutes = [
     { path: '/post', component: Post },
     { path: '/post/:id', component: DetailPost },
     { path: '/edit/:id', component: EditPost },
+    { path: '/search', component: Search },
 ];
 
 const privateRoutes = [];
