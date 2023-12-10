@@ -1,49 +1,54 @@
 import styles from './Search.module.scss';
 import classNames from 'classnames/bind';
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import { Navigate } from 'react-router-dom';
 import axios from 'axios';
+import Post from '~/pages/post';
+import { on } from 'events';
 const cx = classNames.bind(styles);
 
 export default function Search({ onSearchClick }) {
+    const [query, setQuery] = useState('');
+    const [redirect, setRedirect] = useState(false);
+    const [posts, setPosts] = useState([]);
     async function search(event) {
-        // const ev = event;
-        // ev.preventDefault();
-        // try {
-        //     const response = await axios.post(
-        //         'http://localhost:3000/login',
-        //         { username, password },
-        //         {
-        //             headers: { 'Content-Type': 'application/json' },
-        //             withCredentials: true,
-        //         },
-        //     );
-        //     if (response.status === 200) {
-        //         setUserInfo(response.data);
-        //         setRedirect(true);
-        //         alert('Login successful');
-        //     } else {
-        //         alert('Login failed');
-        //     }
-        // } catch (error) {
-        //     console.error('Error during login:', error);
-        //     alert('Login failed');
-        // }
+        const ev = event;
+        if (ev.key === 'Enter') {
+            ev.preventDefault();
+            try {
+                const response = await axios
+                    .get('http://localhost:3000/post/search?', {
+                        params: { query: query },
+                    })
+                    .then((response) => {
+                        setPosts(response.data);
+                        console.log(response.data);
+                        setRedirect(true);
+                    });
+            } catch (error) {
+                console.error('Error during search:', error);
+            }
+            if (redirect) {
+                return <Navigate to={'/'} />;
+            }
+        }
     }
-    // if (redirect) {
-    //     return <Navigate to={'/'} />;
-    // }
     return (
-        <form className={cx('search')} onSubmit={search}>
-            <h1>Search Blogs</h1>
-            <input
-                className={cx('search-input')}
-                type="text"
-                placeholder="Enter title of blog"
-                // value={username}
-                // onChange={(ev) => setUsername(ev.target.value)}
-            />
-            <button>search</button>
-        </form>
+        <div>
+            <div className={cx('search')}>
+                <input
+                    onKeyDown={search}
+                    className={cx('search-input')}
+                    type="text"
+                    placeholder="Search"
+                    value={query}
+                    onChange={(ev) => setQuery(ev.target.value)}
+                />
+            </div>
+
+            <div className={cx('container')}>
+                <div>{posts.length > 0 && posts.map((post) => <Post {...post} classname={cx('post')} />)}</div>
+            </div>
+        </div>
     );
 }

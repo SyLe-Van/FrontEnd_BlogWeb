@@ -24,6 +24,13 @@
 .fragment{
     width: 250px;
     height: 53px;
+    position: relative;
+}
+.darkmode{
+   
+   position: absolute;
+   left: 2%;
+   top: 10%;
 }
 //menu
 .menu{
@@ -65,7 +72,7 @@ li {
     
     height: 100%;
     width: 100%;
-    margin-left: 80px;
+    margin-right: 10px;
     gap: 30px;
     
 
@@ -105,8 +112,7 @@ li {
     :hover{
         cursor: pointer;
     }
-    width: 30px;
-    margin-right: 40px;
+    width: 46px;
 }
 
 .modal-wrapper {
@@ -123,10 +129,10 @@ li {
 }
 
 .modal-content {
-    background: #e5e5e5;
+    background: #ffffff;
     padding: 10px 10px 50px 10px;
-    border-radius: 15px;
-    width: 550px;
+    width: 100vw;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
