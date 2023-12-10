@@ -70,7 +70,9 @@ export default function Sidebar() {
         <aside className={cx('wrapper')}>
             <div className={cx('inner')}>
                 <div className={cx('fragment')}>
-                    <DarkMode />
+                    <div className={cx('darkmode')}>
+                        <DarkMode />
+                    </div>
                 </div>
 
                 <div className={cx('menu')}>
@@ -94,7 +96,7 @@ export default function Sidebar() {
                         <div className={cx('menu-contact')}>
                             <ul>
                                 <li className={cx('menu-mode')}>
-                                    <button className={cx('search-icon')}>
+                                    <button className={cx('search-icon')} onClick={() => setShowSearch(!showSearch)}>
                                         <FontAwesomeIcon icon={faMagnifyingGlass} style={{ color: '#000000' }} />
                                     </button>
                                     {showSearch && (
@@ -103,7 +105,7 @@ export default function Sidebar() {
                                                 <button className={cx('modal-close-button')} onClick={toggleSearch}>
                                                     X
                                                 </button>
-                                                <Search onSearchClick={toggleSearch} />
+                                                <Search />
                                             </div>
                                         </div>
                                     )}
@@ -128,7 +130,7 @@ export default function Sidebar() {
                     <div className={cx('menu-contact')}>
                         <ul>
                             <li className={cx('menu-mode')}>
-                                <button className={cx('search-icon')}>
+                                <button className={cx('search-icon')} onClick={() => setShowSearch(!showSearch)}>
                                     <FontAwesomeIcon icon={faMagnifyingGlass} style={{ color: '#000000' }} />
                                 </button>
                                 {showSearch && (
