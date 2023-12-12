@@ -11,6 +11,7 @@ import Login from '~/pages/login';
 import RegisterPage from '~/pages/register';
 import DarkMode from '~/components/DarkMode/DarkMode';
 import Search from '~/pages/search';
+import axios from 'axios';
 const cx = classNames.bind(styles);
 
 export default function Sidebar() {
@@ -28,16 +29,17 @@ export default function Sidebar() {
         setOpen(false);
     };
     useEffect(() => {
-        fetch('https://backend-blogwebsite.onrender.com/profile', {
-            credentials: 'include',
-        }).then((response) => {
-            response.json().then((userInfo) => {
-                setUserInfo(userInfo);
+        axios
+            .get('http://localhost:3000/post/profile', { withCredentials: true })
+            .then((response) => {
+                setUserInfo(response.data);
+            })
+            .catch((error) => {
+                console.error('Error fetching user profile:', error);
             });
-        });
     }, []);
     function logout() {
-        fetch('https://backend-blogwebsite.onrender.com/logout', {
+        fetch('http://localhost:3000/logout', {
             credentials: 'include',
             method: 'POST',
         });
@@ -102,7 +104,10 @@ export default function Sidebar() {
                                     {showSearch && (
                                         <div className={cx('modal-wrapper')}>
                                             <div className={cx('modal-content')}>
-                                                <button className={cx('modal-close-button')} onClick={toggleSearch}>
+                                                <button
+                                                    className={cx('modal-close-button-search')}
+                                                    onClick={toggleSearch}
+                                                >
                                                     X
                                                 </button>
                                                 <Search />
@@ -136,7 +141,7 @@ export default function Sidebar() {
                                 {showSearch && (
                                     <div className={cx('modal-wrapper')}>
                                         <div className={cx('modal-content')}>
-                                            <button className={cx('modal-close-button')} onClick={toggleSearch}>
+                                            <button className={cx('modal-close-button-search')} onClick={toggleSearch}>
                                                 X
                                             </button>
                                             <Search />

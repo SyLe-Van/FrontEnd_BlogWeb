@@ -13,7 +13,11 @@ export default function Editor({ value, onChange }) {
     return (
         <div className="content">
             <ReactQuill
-                style={{ maxWidth: '800px' }}
+                style={{
+                    width: '600px',
+                    height: '250px',
+                    overflow: 'auto',
+                }}
                 value={value}
                 theme={'snow'}
                 onChange={onChange}

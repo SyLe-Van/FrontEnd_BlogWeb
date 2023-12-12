@@ -16,7 +16,7 @@ export default function Login({ onRegisterClick }) {
         ev.preventDefault();
         try {
             const response = await axios.post(
-                'https://backend-blogwebsite.onrender.com/login',
+                'http://localhost:3000/login',
                 { username, password },
                 {
                     headers: { 'Content-Type': 'application/json' },

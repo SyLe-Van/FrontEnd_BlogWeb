@@ -140,14 +140,21 @@ li {
 }
 
 .modal-close-button {
-    // position: absolute;
     width: 35px;
     align-self: flex-end;
     cursor: pointer;
     border-radius: 1rem;
     background-color: #cecece;
 }
+.modal-close-button-search{
+    width: 35px;
+    align-self: flex-end;
+    cursor: pointer;
+    border-radius: 1rem;
+    background-color: #cecece;
+    margin-top: 100px;
+}
 .add-post-button{
     border: none;
-    width: 10px;
+    width: 50px;
 }

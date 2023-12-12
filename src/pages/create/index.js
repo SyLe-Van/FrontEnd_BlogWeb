@@ -47,7 +47,7 @@ export default function CreatePost() {
         data.append('file', files[0]);
 
         try {
-            const response = await axios.post('https://backend-blogwebsite.onrender.com/post/createPost', data, {
+            const response = await axios.post('http://localhost:3000/post/createPost', data, {
                 withCredentials: true,
             });
 
@@ -67,8 +67,8 @@ export default function CreatePost() {
     }
 
     return (
-        <div className={cx('wrapper')}>
-            <div className={cx('inner')}>
+        <div className={cx('create-wrapper')}>
+            <div className={cx('create-inner')}>
                 <form onSubmit={createNewPost} className={cx('create')}>
                     <input
                         className={cx('input-create')}
@@ -85,7 +85,16 @@ export default function CreatePost() {
                         onChange={(ev) => setCategories(ev.target.value)}
                     />
                     <input className={cx('input-file')} type="file" onChange={(ev) => setFiles(ev.target.files)} />
-                    <ReactQuill className={cx('content')} onChange={setContent} value={content} />
+                    <ReactQuill
+                        style={{
+                            width: '600px',
+                            height: '250px',
+                            overflow: 'auto',
+                        }}
+                        className={cx('content')}
+                        onChange={setContent}
+                        value={content}
+                    />
                     <button style={{ marginTop: '50px' }} className={cx('button')}>
                         Create post
                     </button>

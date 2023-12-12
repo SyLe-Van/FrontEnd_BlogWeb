@@ -18,7 +18,7 @@ export default function EditPost() {
 
     useEffect(() => {
         axios
-            .get(`https://backend-blogwebsite.onrender.com/post/getPost/${id}`)
+            .get(`http://localhost:3000/post/getPost/${id}`)
             .then((response) => {
                 setTitle(response.data.title);
                 setCategories(response.data.categories);
@@ -40,7 +40,7 @@ export default function EditPost() {
             data.set('file', files?.[0]);
         }
         try {
-            const response = await axios.put(`https://backend-blogwebsite.onrender.com/post/updatePost`, data, {
+            const response = await axios.put(`http://localhost:3000/post/updatePost`, data, {
                 withCredentials: true,
             });
             if (response.status === 200) {
@@ -55,26 +55,29 @@ export default function EditPost() {
         return <Navigate to={`/post/${id}`} />;
     }
     return (
-        <div className={cx('wrapper')}>
-            <div className={cx('inner')}>
-                <form onSubmit={updatePost}>
+        <div className={cx('edit-wrapper')}>
+            <div className={cx('edit-inner')}>
+                <form onSubmit={updatePost} className={cx('edit')}>
                     <input
+                        className={cx('edit-create')}
                         type="title"
                         placeholder={'Title'}
                         value={title}
                         onChange={(ev) => setTitle(ev.target.value)}
                     />
                     <input
+                        className={cx('edit-create')}
                         type="category"
                         placeholder={'Categories'}
                         value={categories}
                         onChange={(ev) => setCategories(ev.target.value)}
                     />
-                    <input type="file" onChange={(ev) => setFiles(ev.target.files)} />
-                    <Editor className={cx('edit')} onChange={setContent} value={content} />
-                    <button style={{ marginTop: '5px' }}>Update Post</button>
+                    <input className={cx('input-file')} type="file" onChange={(ev) => setFiles(ev.target.files)} />
+                    <Editor className={cx('content')} onChange={setContent} value={content} />
+                    <button className={cx('button')}>Update Post</button>
                 </form>
             </div>
         </div>
+        ////
     );
 }
