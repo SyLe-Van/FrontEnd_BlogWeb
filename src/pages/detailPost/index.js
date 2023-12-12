@@ -1,17 +1,18 @@
-import { Link, Navigate, useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import styles from './detailPost.module.scss';
 import classNames from 'classnames/bind';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button, Modal } from 'antd';
 import { faFacebookF, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
 import axios from 'axios';
+import { UserContext } from '~/UserContext';
 const cx = classNames.bind(styles);
 
 export default function DetailPost({ categories, title }) {
     const [postInfo, setPostInfo] = useState(null);
     // const [categories,setCategories] = useState('');
-    const [userInfo, setUserInfo] = useState();
+    const { setUserInfo, userInfo } = useContext(UserContext);
     const { id } = useParams();
     const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -21,20 +22,9 @@ export default function DetailPost({ categories, title }) {
         setIsModalOpen(true);
     };
 
-    useEffect(() => {
-        axios
-            .get(`https://backend-blogwebsite.onrender.com/post/getPost/${id}`)
-            .then((response) => {
-                setPostInfo(response.data);
-            })
-            .catch((error) => {
-                console.error('Error fetching post:', error);
-            });
-    }, [id]);
-
     const handleOk = () => {
         axios
-            .delete(`https://backend-blogwebsite.onrender.com/post/deletePost/${id}`, {
+            .delete(`http://localhost:3000/post/deletePost/${id}`, {
                 withCredentials: true,
             })
             .then((response) => {
@@ -54,7 +44,7 @@ export default function DetailPost({ categories, title }) {
 
     useEffect(() => {
         axios
-            .get(`https://backend-blogwebsite.onrender.com/post/getPost/${id}`)
+            .get(`http://localhost:3000/post/getPost/${id}`)
             .then((response) => {
                 setPostInfo(response.data);
             })
@@ -62,13 +52,23 @@ export default function DetailPost({ categories, title }) {
                 console.error('Error fetching post:', error);
             });
     }, [id]);
+    useEffect(() => {
+        axios
+            .get('http://localhost:3000/post/profile', { withCredentials: true })
+            .then((response) => {
+                setUserInfo(response.data);
+            })
+            .catch((error) => {
+                console.error('Error fetching user profile:', error);
+            });
+    }, []);
     if (!postInfo) return '';
-
+    const username = userInfo?.username;
     return (
         <div className={cx('wrapper')}>
             <div className={cx('inner')}>
                 <div className={cx('image')}>
-                    <img src={`https://backend-blogwebsite.onrender.com/static/${postInfo.cover}`} alt="Post Cover" />
+                    <img src={`http://localhost:3000/static/${postInfo.cover}`} alt="Post Cover" />
                 </div>
                 <div className={cx('contain')}>
                     <div className={cx('author')}>
@@ -82,26 +82,30 @@ export default function DetailPost({ categories, title }) {
                         <div className={cx('text')} dangerouslySetInnerHTML={{ __html: postInfo.content }}></div>
                         <div className={cx('comment')}>
                             <input type="text" placeholder="Add a comment..." />
-                            <div className={cx('comment-box')}>
-                                <button>
-                                    <Link to={`/edit/${postInfo._id}`}>Edit</Link>
-                                </button>
-                                <div>
-                                    <>
-                                        <Button type="primary" onClick={showModal}>
-                                            Delete
-                                        </Button>
-                                        <Modal
-                                            title="Delete Post"
-                                            visible={isModalOpen}
-                                            onOk={handleOk}
-                                            onCancel={handleCancel}
-                                        >
-                                            <p>Are you sure you want to delete this post?</p>
-                                        </Modal>
-                                    </>
-                                </div>
-                            </div>
+                            {username && (
+                                <>
+                                    <div className={cx('comment-box')}>
+                                        <button>
+                                            <Link to={`/edit/${postInfo._id}`}>Edit</Link>
+                                        </button>
+                                        <div>
+                                            <>
+                                                <Button type="primary" onClick={showModal}>
+                                                    Delete
+                                                </Button>
+                                                <Modal
+                                                    title="Delete Post"
+                                                    visible={isModalOpen}
+                                                    onOk={handleOk}
+                                                    onCancel={handleCancel}
+                                                >
+                                                    <p>Are you sure you want to delete this post?</p>
+                                                </Modal>
+                                            </>
+                                        </div>
+                                    </div>
+                                </>
+                            )}
                         </div>
                     </div>
                     <div className={cx('sidebar')}>

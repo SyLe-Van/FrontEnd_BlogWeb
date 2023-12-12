@@ -15,7 +15,7 @@ export default function Home() {
                     <div className={cx('contain-left')}>
                         <div className={cx('left-content')}>
                             <div className={cx('top-post')}>
-                                <Link to={'https://frontend-blogwebsite.vercel.app/post/656e1871cdc7b9af90853d59'}>
+                                <Link to={'http://localhost:3001/post/656e1871cdc7b9af90853d59'}>
                                     <a>
                                         <img src="https://mannup.vn/wp-content/uploads/2015/12/image4.jpeg"></img>
                                     </a>
@@ -26,7 +26,7 @@ export default function Home() {
                             </div>
 
                             <div className={cx('bottom-post')}>
-                                <Link to={'https://frontend-blogwebsite.vercel.app/post/656e15842611b6894050901c'}>
+                                <Link to={'http://localhost:3001/post/656e15842611b6894050901c'}>
                                     <a>
                                         <img src="https://mannup.vn/wp-content/uploads/2019/08/d4ed63847ca576487a80d35d467405f7.jpg"></img>
                                     </a>
@@ -39,7 +39,7 @@ export default function Home() {
                     </div>
                     <div className={cx('contain-middle')}>
                         <div className={cx('top-post')}>
-                            <Link to={'https://frontend-blogwebsite.vercel.app/post/656f7257361662459ebc779c'}>
+                            <Link to={'http://localhost:3001/post/656f7257361662459ebc779c'}>
                                 <a>
                                     <img src="https://mannup.vn/wp-content/uploads/2016/11/ed80c049c0fc414f6c5fdaac9afc6a34.jpg"></img>
                                 </a>
@@ -52,7 +52,7 @@ export default function Home() {
                     <div className={cx('contain-right')}>
                         <div className={cx('right-content')}>
                             <div className={cx('t-post')}>
-                                <Link to={'https://frontend-blogwebsite.vercel.app/post/656f733b361662459ebc77ba'}>
+                                <Link to={'http://localhost:3001/post/656f733b361662459ebc77ba'}>
                                     <a>
                                         <img src="https://mannup.vn/wp-content/uploads/2016/02/image-1.jpeg"></img>
                                     </a>
