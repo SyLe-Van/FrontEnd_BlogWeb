@@ -47,7 +47,7 @@ export default function CreatePost() {
         data.append('file', files[0]);
 
         try {
-            const response = await axios.post('https://backend-2x7f.onrender.com/post/createPost', data, {
+            const response = await axios.post('https://backend-blogwebsite.onrender.com/post/createPost', data, {
                 withCredentials: true,
             });
 

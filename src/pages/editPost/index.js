@@ -18,7 +18,7 @@ export default function EditPost() {
 
     useEffect(() => {
         axios
-            .get(`https://backend-2x7f.onrender.com/post/getPost/${id}`)
+            .get(`https://backend-blogwebsite.onrender.com/post/getPost/${id}`)
             .then((response) => {
                 setTitle(response.data.title);
                 setCategories(response.data.categories);
@@ -40,7 +40,7 @@ export default function EditPost() {
             data.set('file', files?.[0]);
         }
         try {
-            const response = await axios.put(`https://backend-2x7f.onrender.com/post/updatePost`, data, {
+            const response = await axios.put(`https://backend-blogwebsite.onrender.com/post/updatePost`, data, {
                 withCredentials: true,
             });
             if (response.status === 200) {

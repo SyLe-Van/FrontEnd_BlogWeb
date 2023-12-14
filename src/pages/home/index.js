@@ -29,7 +29,9 @@ export default function Home() {
 
                             <div className={cx('bottom-post')}>
                                 <Link
-                                    to={'https://vercel.com/syle-van/front-end-blog-web/post/656e15842611b6894050901c'}
+                                    to={
+                                        'https://vercel.com/syle-van/front-end-blog-web/front-end-blog-web/post/656e15842611b6894050901c'
+                                    }
                                 >
                                     <a>
                                         <img src="https://mannup.vn/wp-content/uploads/2019/08/d4ed63847ca576487a80d35d467405f7.jpg"></img>

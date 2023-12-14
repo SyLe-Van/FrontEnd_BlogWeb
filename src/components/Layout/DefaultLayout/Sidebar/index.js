@@ -30,7 +30,7 @@ export default function Sidebar() {
     };
     useEffect(() => {
         axios
-            .get('https://backend-2x7f.onrender.com/post/profile', { withCredentials: true })
+            .get('https://backend-blogwebsite.onrender.com/post/profile', { withCredentials: true })
             .then((response) => {
                 setUserInfo(response.data);
             })
@@ -39,7 +39,7 @@ export default function Sidebar() {
             });
     }, []);
     function logout() {
-        fetch('https://backend-2x7f.onrender.com/logout', {
+        fetch('https://backend-blogwebsite.onrender.com/logout', {
             credentials: 'include',
             method: 'POST',
         });

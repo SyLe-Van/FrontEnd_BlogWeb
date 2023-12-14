@@ -12,23 +12,21 @@ export default function RegisterPage({ onLoginClick }) {
     async function register(ev) {
         ev.preventDefault();
         try {
-            const response = await axios.post('https://backend-2x7f.onrender.com/register', {
+            const response = await axios.post('https://backend-blogwebsite.onrender.com/register', {
                 username,
                 password,
             });
-            if (response.status === 200) {
+            if (response.status === 201) {
                 setRedirect(true);
                 alert('Registration successful');
-            } else {
-                alert('Registration failed');
             }
         } catch (error) {
-            console.error('Registration failed', error);
-            alert('Registration failed');
+            console.error('User already exists', error);
+            alert('User already exists');
         }
     }
     if (redirect) {
-        return <Navigate to={''} />;
+        return <Navigate to={'/'} />;
     }
     return (
         <form className={cx('register')} onSubmit={register}>

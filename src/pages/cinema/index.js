@@ -10,7 +10,7 @@ export default function Cinema() {
     const [posts, setPosts] = useState([]);
 
     useEffect(() => {
-        fetch(`https://backend-2x7f.onrender.com/post/getPostByCategories/${cinema}`).then((response) => {
+        fetch(`https://backend-blogwebsite.onrender.com/post/getPostByCategories/${cinema}`).then((response) => {
             response.json().then((posts) => {
                 setPosts(posts);
             });
