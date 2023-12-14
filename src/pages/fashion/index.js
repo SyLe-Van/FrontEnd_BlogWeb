@@ -11,7 +11,7 @@ export default function Fashion() {
 
     useEffect(() => {
         axios
-            .get(`http://localhost:3000/post/getPostByCategories/${fashion}`)
+            .get(`https://backend-blogwebsite.onrender.com/post/getPostByCategories/${fashion}`)
             .then((response) => {
                 setPosts(response.data);
             })
