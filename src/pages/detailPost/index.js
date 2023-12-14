@@ -24,7 +24,7 @@ export default function DetailPost({ categories, title }) {
 
     const handleOk = () => {
         axios
-            .delete(`https://backend-blogwebsite.onrender.com/post/deletePost/${id}`, {
+            .delete(`https://backend-2x7f.onrender.com/post/deletePost/${id}`, {
                 withCredentials: true,
             })
             .then((response) => {
@@ -44,7 +44,7 @@ export default function DetailPost({ categories, title }) {
 
     useEffect(() => {
         axios
-            .get(`https://backend-blogwebsite.onrender.com/post/getPost/${id}`)
+            .get(`https://backend-2x7f.onrender.com/post/getPost/${id}`)
             .then((response) => {
                 setPostInfo(response.data);
             })
@@ -54,7 +54,7 @@ export default function DetailPost({ categories, title }) {
     }, [id]);
     useEffect(() => {
         axios
-            .get('https://backend-blogwebsite.onrender.com/post/profile', { withCredentials: true })
+            .get('https://backend-2x7f.onrender.com/post/profile', { withCredentials: true })
             .then((response) => {
                 setUserInfo(response.data);
             })
@@ -68,7 +68,7 @@ export default function DetailPost({ categories, title }) {
         <div className={cx('wrapper')}>
             <div className={cx('inner')}>
                 <div className={cx('image')}>
-                    <img src={`https://backend-blogwebsite.onrender.com/static/${postInfo.cover}`} alt="Post Cover" />
+                    <img src={`https://backend-2x7f.onrender.com/static/${postInfo.cover}`} alt="Post Cover" />
                 </div>
                 <div className={cx('contain')}>
                     <div className={cx('author')}>
