@@ -4,7 +4,7 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import { useState } from 'react';
 import { Navigate } from 'react-router-dom';
-import axios from 'axios';
+import Editor from '~/Editor';
 const cx = classNames.bind(styles);
 
 const modules = {
@@ -38,27 +38,22 @@ export default function CreatePost() {
     const [redirect, setRedirect] = useState(false);
 
     async function createNewPost(ev) {
-        ev.preventDefault();
-
         const data = new FormData();
+
         data.append('title', title);
         data.append('categories', categories);
         data.append('content', content);
         data.append('file', files[0]);
 
-        try {
-            const response = await axios.post('https://backend-blogwebsite.onrender.com/post/createPost', data, {
-                withCredentials: true,
-            });
-
-            console.log(response.data);
-
-            if (response.status === 200) {
-                alert('Post created successfully!');
-                setRedirect(true);
-            }
-        } catch (error) {
-            console.error('Error creating post:', error);
+        ev.preventDefault();
+        const response = await fetch('http://localhost:3000/post/createPost', {
+            method: 'POST',
+            body: data,
+            credentials: 'include',
+        });
+        console.log(await response.json());
+        if (response.ok) {
+            setRedirect(true);
         }
     }
 
@@ -67,39 +62,21 @@ export default function CreatePost() {
     }
 
     return (
-        <div className={cx('create-wrapper')}>
-            <div className={cx('create-inner')}>
-                <form onSubmit={createNewPost} className={cx('create')}>
-                    <input
-                        className={cx('input-create')}
-                        type="title"
-                        placeholder={'Title'}
-                        value={title}
-                        onChange={(ev) => setTitle(ev.target.value)}
-                    />
-                    <input
-                        className={cx('input-create')}
-                        type="category"
-                        placeholder={'Categories'}
-                        value={categories}
-                        onChange={(ev) => setCategories(ev.target.value)}
-                    />
-                    <input className={cx('input-file')} type="file" onChange={(ev) => setFiles(ev.target.files)} />
-                    <ReactQuill
-                        style={{
-                            width: '600px',
-                            height: '250px',
-                            overflow: 'auto',
-                        }}
-                        className={cx('content')}
-                        onChange={setContent}
-                        value={content}
-                    />
-                    <button style={{ marginTop: '50px' }} className={cx('button')}>
-                        Create post
-                    </button>
-                </form>
-            </div>
+        <div className={cx('create')}>
+            <form onSubmit={createNewPost} className={cx('create')}>
+                <input type="title" placeholder={'Title'} value={title} onChange={(ev) => setTitle(ev.target.value)} />
+                <input
+                    type="category"
+                    placeholder={'Categories'}
+                    value={categories}
+                    onChange={(ev) => setCategories(ev.target.value)}
+                />
+                <input type="file" onChange={(ev) => setFiles(ev.target.files)} />
+                <ReactQuill onChange={setContent} value={content} />
+                <button style={{ marginTop: '5px' }} className={cx('button')}>
+                    Create post
+                </button>
+            </form>
         </div>
     );
 }
