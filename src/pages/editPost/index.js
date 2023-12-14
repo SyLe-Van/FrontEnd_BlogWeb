@@ -18,7 +18,7 @@ export default function EditPost() {
 
     useEffect(() => {
         axios
-            .get(`https://backend-blogwebsite.onrender.com/post/getPost/${id}`)
+            .get(`https://backend-2x7f.onrender.com/post/getPost/${id}`)
             .then((response) => {
                 setTitle(response.data.title);
                 setCategories(response.data.categories);
