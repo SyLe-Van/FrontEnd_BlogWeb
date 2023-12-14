@@ -30,7 +30,7 @@ export default function Sidebar() {
     };
     useEffect(() => {
         axios
-            .get('https://backend-2x7f.onrender.com/post/profile', { withCredentials: true })
+            .get('http://localhost:3000/post/profile', { withCredentials: true })
             .then((response) => {
                 setUserInfo(response.data);
             })
@@ -39,7 +39,7 @@ export default function Sidebar() {
             });
     }, []);
     function logout() {
-        fetch('https://backend-2x7f.onrender.com/logout', {
+        fetch('http://localhost:3000/logout', {
             credentials: 'include',
             method: 'POST',
         });
