@@ -12,7 +12,7 @@ export default function RegisterPage({ onLoginClick }) {
     async function register(ev) {
         ev.preventDefault();
         try {
-            const response = await axios.post('https://backend-blogwebsite.onrender.com/register', {
+            const response = await axios.post('http://localhost:3000/register', {
                 username,
                 password,
             });

@@ -30,7 +30,7 @@ export default function Sidebar() {
     };
     useEffect(() => {
         axios
-            .get('https://backend-blogwebsite.onrender.com/post/profile', { withCredentials: true })
+            .get('http://localhost:3000/post/profile', { withCredentials: true })
             .then((response) => {
                 setUserInfo(response.data);
             })
@@ -39,7 +39,7 @@ export default function Sidebar() {
             });
     }, []);
     function logout() {
-        fetch('https://backend-blogwebsite.onrender.com/logout', {
+        fetch('http://localhost:3000/logout', {
             credentials: 'include',
             method: 'POST',
         });
@@ -80,9 +80,9 @@ export default function Sidebar() {
                 <div className={cx('menu')}>
                     <ul className={cx('menu-list')}>
                         <li>
-                            <Link to="/lifestyle">LIFESTYLE</Link>
+                            <Link to="/">FACEBOOK-PHAKE</Link>
                         </li>
-                        <li>
+                        {/* <li>
                             <Link to="/fashion">FASHION</Link>
                         </li>
                         <li>
@@ -90,7 +90,7 @@ export default function Sidebar() {
                         </li>
                         <li>
                             <Link to="/grooming">GROOMING</Link>
-                        </li>
+                        </li> */}
                     </ul>
                 </div>
                 {username && (

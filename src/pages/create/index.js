@@ -47,7 +47,7 @@ export default function CreatePost() {
         data.append('file', files[0]);
 
         try {
-            const response = await axios.post('https://backend-blogwebsite.onrender.com/post/createPost', data, {
+            const response = await axios.post('http://localhost:3000/post/createPost', data, {
                 withCredentials: true,
             });
 
@@ -63,7 +63,7 @@ export default function CreatePost() {
     }
 
     if (redirect) {
-        return <Navigate to={`/${categories}`} />;
+        return <Navigate to={`/`} />;
     }
 
     return (
@@ -73,19 +73,19 @@ export default function CreatePost() {
                     <input
                         className={cx('input-create')}
                         type="title"
-                        placeholder={'Title'}
+                        placeholder={'Caption'}
                         value={title}
                         onChange={(ev) => setTitle(ev.target.value)}
                     />
-                    <input
+                    {/* <input
                         className={cx('input-create')}
                         type="category"
                         placeholder={'Categories'}
                         value={categories}
                         onChange={(ev) => setCategories(ev.target.value)}
-                    />
+                    /> */}
                     <input className={cx('input-file')} type="file" onChange={(ev) => setFiles(ev.target.files)} />
-                    <ReactQuill
+                    {/* <ReactQuill
                         style={{
                             width: '600px',
                             height: '250px',
@@ -94,9 +94,9 @@ export default function CreatePost() {
                         className={cx('content')}
                         onChange={setContent}
                         value={content}
-                    />
+                    /> */}
                     <button style={{ marginTop: '50px' }} className={cx('button')}>
-                        Create post
+                        Upload
                     </button>
                 </form>
             </div>
