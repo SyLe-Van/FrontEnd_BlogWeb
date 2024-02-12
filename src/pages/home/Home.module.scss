@@ -1,6 +1,6 @@
 .wrapper{
     width: 100vw;
-    height: 100vh;
+    height: fit-content;
     margin: 0 auto;
     padding: 0;
     box-sizing: border-box;
@@ -23,157 +23,13 @@
     height: 750px;
     width: 100%;
     display:flex;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
     margin-top: 30px;
-    
+   
 }
 
-.contain-left, .contain-middle, .contain-right{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 750px;
-}
-.contain-middle{
-    width: 600px;
-    box-shadow: 0.5px 0px 0px rgba(71, 71, 71, 0.2);
-    position: relative;
-    // background-color: aqua;
-}
 
 .a{
     font-family: 'Playfair Display',serif;
 }
-
-// left
-.contain-left{
-    width: 300px;
-    box-shadow: 0.5px 0px 0px rgba(71, 71, 71, 0.2);
-    
-}
-.left-content{
-    width: 250px;
-    height: 100%;
-
-}
-.left-content a img {
-    width: 100%; 
-    height: 250px; 
-    object-fit: cover;
-}
-.left-text h1{
-    font-family: 'Playfair Display';
-    font-weight: 500;
-    font-size: 1.7em;
-    font-style: normal;
-    line-height: 1.2;
-}
-
-.bottom-post{
-    margin-top: 20px;
-    
-}
-//right
-.contain-right{
-    width: 300px;
-}
-.right-content{
-    width: 250px;
-    height: 100%;
-}
-.right-content a img {
-    width: 100%; 
-    height: 250px; 
-    object-fit: cover;
-}
-.right-text h1{
-    font-family: 'Playfair Display';
-    font-weight: 500;
-    font-size: 1.7em;
-    font-style: normal;
-    line-height: 1.2;
-}
-.b-post{
-    margin-top: 70px;
-
-}
-///////////////////////// row
-
-.row1{
-    height: 110px;
-    width: 100%;
-    background-color: rgb(236, 237, 237); 
-    margin-top: 60px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-// lifestyle css
-.lifestyle-block, .fashion-block, .cinema-block, .grooming-block{
-    width: 100%;
-    height: 522px;
-    margin-top: 60px;
-}
-.lifestyle-title, .fashion-title, .cinema-title, .grooming-title{
-    width: 100%;
-    height: 72px;
-}
-
-.lifestyle-title p, .fashion-title p, .cinema-title p, .grooming-title p{
-    width: 100%;
-    font-family: 'Playfair Display';
-    font-size: 45px;
-    display: inline-block;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-}
-
-.lifestyle-title p::before, .fashion-title p::before, .cinema-title p::before, .grooming-title p::before {
-    content: "";
-    width: 550px;
-    border-bottom: 1px solid rgb(223, 222, 222);
-    margin-right: 30px;
-    margin-left: 0;
-    vertical-align: middle;
-}
-.lifestyle-title p::after, .fashion-title p::after, .cinema-title p::after, .grooming-title p::after {
-    content: "";
-    width: 550px;
-    border-bottom: 1px solid rgb(223, 222, 222);
-    vertical-align: middle;
-    margin-left: 30px;
-}
-
-
-.lifestyle-contain, .fashion-contain, .cinema-contain, .grooming-contain{
-    width: 100%;
-    height: 470px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-//footer
-.footer{
-    width: 100vw;
-    height: 700px;
-    margin-top: 60px;
-}
-.left-text h1{
-    color: var(--body_color);
-}
-
-.b-post a h1 {
-    color: var(--body_color);
-}
-.t-post a h1 {
-    color: var(--body_color);
-}
-.right-text h1{
-    color: var(--body_color);
-}
- 
-  

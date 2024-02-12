@@ -58,7 +58,7 @@ export default function CreatePost() {
     }
 
     if (redirect) {
-        return <Navigate to={`/${categories}`} />;
+        return <Navigate to={`/`} />;
     }
 
     return (

@@ -8,7 +8,7 @@ export default function DefaultLayout({ children }) {
     return (
         <div className={cx('wrapper')}>
             <div className={cx('top')}>
-                <Header />
+                {/* <Header /> */}
                 <Sidebar />
             </div>
             <div className={cx('body')}>{children}</div>
