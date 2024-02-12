@@ -36,7 +36,7 @@ export default function Post({ _id, title, categories, cover, content, author })
         <div className={cx('wrapper')}>
             <div className={cx('post')}>
                 <Link to={`/post/${_id}`}>
-                    <img src={'http://localhost:3000/static/' + cover}></img>
+                    <img src={'https://backend-2x7f.onrender.com/static/' + cover}></img>
                 </Link>
             </div>
 

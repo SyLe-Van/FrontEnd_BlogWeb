@@ -11,7 +11,7 @@ export default function LifeStyle() {
 
     useEffect(() => {
         axios
-            .get(`http://localhost:3000/post/getPostByCategories/${grooming}`)
+            .get(`https://backend-2x7f.onrender.com/post/getPostByCategories/${grooming}`)
             .then((response) => {
                 setPosts(response.data);
             })
